@@ -47,11 +47,6 @@ export default createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
-    footer {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 14px;
-    }
-
     a {
         text-decoration: none;
     }

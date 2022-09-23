@@ -14,8 +14,6 @@ export const Container = styled.div`
         height: 48px;
         width: 100%;
 
-        
-
         padding: 16px 14px;
 
         color: ${({ theme }) => theme.COLORS.GRAY_200};

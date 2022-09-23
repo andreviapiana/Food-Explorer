@@ -6,7 +6,7 @@ export function ButtonText({ icon: Icon, title, ...rest }) {
         type="button"
         {...rest}
         >
-            {Icon && <Icon size={21} />}
+            {Icon && <Icon size={34} />}
             {title}
         </Container>
     );
