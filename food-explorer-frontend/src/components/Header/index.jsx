@@ -3,6 +3,7 @@ import { Input } from '../../components/Input';
 import { FiSearch } from 'react-icons/fi';
 import { FiLogOut } from 'react-icons/fi';
 import { BsReceipt } from 'react-icons/bs';
+import logo from '../../assets/logo.svg'
 import { Button } from "../Button";
 import { ButtonText } from "../../components/ButtonText";
 
@@ -12,9 +13,9 @@ export function Header() {
             <main>
                 <Logo>
                     <div className="logo">
-                        <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.0635 0.306641L25.7096 7.60782V22.2102L13.0635 29.5114L0.417527 22.2102V7.60782L13.0635 0.306641Z" fill="#065E7C"/>
-                        </svg>
+                        <a href="#">
+                            <img src={logo} alt="" />
+                        </a>
                         <h1>food explorer</h1>
                     </div>
                 </Logo>

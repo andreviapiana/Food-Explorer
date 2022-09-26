@@ -13,6 +13,7 @@ export default {
         BLUE: "#0099ff", /*É a cor do logo e dos textos rosas/azuis*/
         BLUE_100: "#82F3FF", /*É a cor dos preços nos produtos*/
         BLUE_200: "#001119", /*É a cor de fundo do form de login*/
+        BLUE_300: "#192227", /*É a cor das bordas das tabelas*/
 
         GRAY_200: "rgba(255, 255, 255, 0.3)", /*É a cor do texto do Footer*/
   

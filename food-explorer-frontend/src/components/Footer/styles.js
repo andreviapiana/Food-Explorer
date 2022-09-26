@@ -10,7 +10,7 @@ export const Container = styled.header`
 
     > main {
         height: 7.7rem;
-        width: 136.8rem;
+        width: 113.2rem;
         gap: 3.2rem;
 
         display: flex;
@@ -39,5 +39,11 @@ export const Logo = styled.div`
     .logo {
         display: flex;
         gap: 1.123rem;
+    }
+
+    svg path {
+        fill: green;
+        color: red;
+        background-color: red;
     }
 `;

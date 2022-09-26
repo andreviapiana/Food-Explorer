@@ -8,7 +8,7 @@ export const Container = styled.header`
 
     > main {
         height: 10.4rem;
-        width: 136.8rem;
+        width: 113.2rem;
         gap: 3.2rem;
 
         display: flex;
