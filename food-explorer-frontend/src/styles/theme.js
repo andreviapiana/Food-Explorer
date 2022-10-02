@@ -8,7 +8,7 @@ export default {
         WHITE: "#FFFFFF", /*É a cor do texto branco puro*/
         WHITE_100: "#E1E1E6", /*É a cor do texto dos Títulos*/
         GRAY_100: "#C4C4CC", /*É a cor do texto das descrições*/
-        GRAY_200: "#7C7C8A", /*É a cor do texto nos Inputs*/
+        GRAY_300: "#7C7C8A", /*É a cor do texto nos Inputs*/
         
         BLUE: "#0099ff", /*É a cor do logo e dos textos rosas/azuis*/
         BLUE_100: "#82F3FF", /*É a cor dos preços nos produtos*/
@@ -16,9 +16,11 @@ export default {
         BLUE_300: "#192227", /*É a cor das bordas das tabelas*/
 
         GRAY_200: "rgba(255, 255, 255, 0.3)", /*É a cor do texto do Footer*/
+        GRAY_400: "rgba(255, 255, 255, 0.05)", /*É a cor dos botões de Pix e Cartão*/
   
   
         RED: "#FF002E", /*É a cor do ícone para apagar marcadores*/
-        BLACK: "#0D0C0F" /*É a cor preta*/
+        BLACK: "#0D0C0F", /*É a cor preta*/
+        FULL_BLACK: "#000000" /*É a cor 100% preta*/
     }
 }

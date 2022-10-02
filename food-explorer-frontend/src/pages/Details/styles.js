@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    max-width: 136.8rem;
+    max-width: 113.2rem;
     margin: auto;
 
     display: flex;

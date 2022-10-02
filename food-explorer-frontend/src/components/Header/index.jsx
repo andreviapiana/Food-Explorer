@@ -1,16 +1,22 @@
-import { Container, Logo, Search, Logout } from "./styles";
-import { Input } from '../../components/Input';
+import { Container, Content, Logo, Search, Logout, Button } from "./styles";
+import { Input } from '../Input';
+import { ButtonText } from "../ButtonText";
 import { FiSearch } from 'react-icons/fi';
 import { FiLogOut } from 'react-icons/fi';
-import { BsReceipt } from 'react-icons/bs';
-import logo from '../../assets/logo.svg'
-import { Button } from "../Button";
-import { ButtonText } from "../../components/ButtonText";
+
+import logo from '../../assets/logo.svg';
+import receipt from '../../assets/receipt.svg';
 
 export function Header() {
+    
+    function mobileMenu() {
+        document.getElementById('hamburger').classList.toggle('active')
+        document.getElementById('nav-menu').classList.toggle('active')
+    }
+    
     return (
         <Container>
-            <main>
+            <Content>
                 <Logo>
                     <div className="logo">
                         <a href="#">
@@ -20,28 +26,38 @@ export function Header() {
                     </div>
                 </Logo>
 
-                <ButtonText 
-                    title=" Meus favoritos "
-                />
+                <div className="hamburger" id="hamburger" onClick={mobileMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </div>
 
-                <Search>
-                    <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
-                </Search>
+                <div className="nav-menu" id="nav-menu">
 
-                <Button
-                    title='Meu pedido (0)'
-                    icon={BsReceipt}
-                    style={ { height: 56 } }
-                /> 
+                    <ButtonText 
+                        title=" Meus favoritos "
+                    />
 
-                <Logout>
-                    <FiLogOut />
-                </Logout>
+                    <Search>
+                        <Input 
+                            placeholder="Busque pelas opções de pratos" 
+                            icon={FiSearch} 
+                            />
+                    </Search>
 
-            </main>
-            
-            
+                    <Button
+                        type='button'
+                    >
+                        <img src={receipt} alt="receipt"/>
+                        Meu pedido (0)
+                    </Button>
 
+                    <Logout>
+                        <FiLogOut />
+                    </Logout>
+                </div>
+
+            </Content>
         </Container>
     );
 }
