@@ -15,7 +15,6 @@ export function CreateDish() {
     <Container>
       <Header />
 
-      <main>
         <Content>
 
         <Form>
@@ -37,7 +36,7 @@ export function CreateDish() {
                 <div className="dish">
                     <p>Nome do prato</p>
                     <Input
-                        placeholder="Ex.: Salada Ceasar"
+                        placeholder="Ex.: Salada Caesar"
                         type="text"
                         style={ { border: "1px solid white", borderRadius: 5 } }
                     />
@@ -74,14 +73,13 @@ export function CreateDish() {
             </div>
 
             <div className="textarea">
-                <p>Preço</p>
+                <p>Descrição</p>
                 <Textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
             </div>
-          
 
         </Form>
 
-        <div className="buttons">
+        <div className="button">
             <Button 
                 title="Salvar alterações"
                 style={ { width: '31.54%' } }
@@ -89,8 +87,7 @@ export function CreateDish() {
         </div>
 
     </Content>
-      </main>
-      <Footer />
+    <Footer />
     </Container>
   )
 }

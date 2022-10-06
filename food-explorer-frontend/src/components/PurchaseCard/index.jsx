@@ -26,8 +26,6 @@ export function PurchaseCard() {
   
     return(
         <Container>
-            <div className="price">
-                <p>R$25,97</p>
                 
                 <div className="counter">
                     <ButtonText 
@@ -44,10 +42,9 @@ export function PurchaseCard() {
                 <Button 
                     title="incluir"
                     icon={BsReceipt}
-                    style={ { height: 56, padding: '12px 4px' } }
+                    style={ { height: 56, width: 92, padding: '12px 4px' } }
                 />
                 
-            </div>
 
         </Container>
     )

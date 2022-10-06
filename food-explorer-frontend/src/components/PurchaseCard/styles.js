@@ -1,16 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    .price {
-        display: flex;
-        margin-top: 4.8rem;
-    }
+    display: flex;
     
     .counter {
         display: flex;
         align-items: center;
         gap: 1.4rem;
-        margin: 0 2.4rem 0 5.4rem;
+        margin: 0 2.4rem 0 0;
     }
 
     .counter span {

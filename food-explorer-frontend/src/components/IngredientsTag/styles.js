@@ -30,8 +30,8 @@ export const Container = styled.div`
     }
 
     > input {
-        height: 3.2rem;
-        max-width: 14rem;
+        height: 2.8rem;
+        max-width: 13rem;
 
         color: ${({ theme }) => theme.COLORS.WHITE};
         background: transparent;

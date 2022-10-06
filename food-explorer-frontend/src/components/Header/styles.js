@@ -5,6 +5,9 @@ export const Container = styled.header`
     display: flex;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 `;
 
 export const Content = styled.div`

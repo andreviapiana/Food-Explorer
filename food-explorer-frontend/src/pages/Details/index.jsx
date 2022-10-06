@@ -13,8 +13,6 @@ export function Details() {
   return(
     <Container>
       <Header />
-
-      <main>
         <Content>
 
           <ButtonText 
@@ -23,23 +21,29 @@ export function Details() {
             style={ { fontWeight: 500 } }
           />
 
-          <div>
-            <img src={Ravanello} alt="Logo" />
-            <div>
+          <div className="content">
 
-              <h1>Salada Ravanello</h1>
+            <div className="dish">
+              <img src={Ravanello} alt="Logo" />
+              <div className="description">
 
-              <h3>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h3>
+                <h1>Salada Ravanello</h1>
 
-              <Ingredients />
-              
-              <PurchaseCard />
+                <h3>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h3>
 
+                <Ingredients />
+
+                <div className="price">
+                  <h4>R$25,97</h4>
+                  
+                  <PurchaseCard />
+                </div>
+
+              </div>
             </div>
           </div>
 
         </Content>
-      </main>
       <Footer />
     </Container>
   )

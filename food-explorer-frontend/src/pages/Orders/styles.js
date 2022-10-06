@@ -1,30 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    min-width: 320px;
     height: 100vh;
-
-    display: grid;
-    grid-template-rows: 10.4rem auto;
-    grid-template-areas: 
-    "header"
-    "content";
-
-    > main {
-        grid-area: content;
-        overflow: auto;
-        overflow: overlay;
-        padding: 3.5rem 0;
-        height: auto;
-    }
+    overflow: auto;
+    overflow: overlay; 
 `;
 
 export const Content = styled.div`
-    max-width: 113.2rem;
+    height: 100%;
     margin: auto;
 
     display: flex;
     flex-direction: column;
+    padding: 35px 40px;
 
     > h1 {
         font-weight: 500;
@@ -40,16 +32,20 @@ export const Content = styled.div`
         justify-content: center;
 
     }
+
+    @media only screen and (min-width: 768px) {
+        height: 100%;
+    }
 `;
 
 
 export const Table = styled.div`
     .table {
-        max-width: 113.2rem;
+        max-width: 68.8rem;
         height: 38.7rem;
         border: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
         border-radius: 0.8rem;
-  
+
         overflow: auto;
         overflow: overlay;
   
@@ -57,8 +53,8 @@ export const Table = styled.div`
     } 
 
     table {
-        width: 100%;
         border-collapse: collapse;
+        word-break: break-word;
     }
 
     table * {
@@ -111,12 +107,22 @@ export const Table = styled.div`
     }
 
     select {
-        width: 17.5rem;
+        max-width: 17.5rem;
         background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
         border-radius: 0.8rem;
         border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
 
         padding: 1.3rem 1.6rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .table {
+        max-width: 121.2rem;
+        }
+        
+        select {
+            width: 17.5rem;
+        }
     }
 `;

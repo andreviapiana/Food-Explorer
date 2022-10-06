@@ -1,59 +1,51 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-
-    display: grid;
-    grid-template-rows: 10.4rem auto;
-    grid-template-areas: 
-    "header"
-    "content";
-
-    > main {
-        grid-area: content;
-        overflow: auto;
-        overflow: overlay;
-        padding: 2.4rem 0;
-        height: auto;
-    }
+    min-width: 350px;
 `;
 
 export const Content = styled.div`
-    max-width: 113.2rem;
-    margin: auto;
+    height: 100%;
+    margin: 0 40px;
+    padding: 2.5rem 0;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 
-    > button:first-child {
-        align-self: start;
-        font-size: 2.4rem;
+    .description {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
-    > div {
+    .description h4 {
+        margin: 20px 0 20px;
+        font-size: 32px;
+        line-height: 51.2px;
+        color: ${({ theme }) => theme.COLORS.BLUE};
+    }
+
+    > button:first-child {
+        font-size: 2.4rem;
+    }
+
+    .content {
         font-family: 'Poppins', sans-serif;
         font-size: 2rem;
         line-height: 4.75rem;
-        font-weight: 500;
-
-        display: flex;
-        align-items: center;
-        gap: 4.1rem;
-        margin-top: 4.2rem;
+        margin-top: 1rem;
 
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 500;
             margin-bottom: 0.8rem;
         }
 
         h3 {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 2.6rem;
             max-width: 60rem;
@@ -61,22 +53,60 @@ export const Content = styled.div`
         }
 
         img {
-            width: 39rem;
-            height: 39rem;
-        }
-
-        span {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 20px;
+            width: 22rem;
+            height: 22rem;
         }
     }
 
-    > p {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 21px;
-        text-align: justify;
-        margin-top: 40px;
+    @media only screen and (min-width: 768px) {
+        width: 100%;
+        max-width: 121.2rem;
+        margin: auto;
+        padding: 2.5rem 4rem;
+
+        .dish {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .description {
+            align-items: flex-start;
+            text-align: left;
+            align-self: center;
+        }
+
+        .description h4 {
+            margin: 0;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 5.4rem;
+            margin-top: 43px;
+        }
+
+        .content {
+            margin-top: 4.2rem;
+            
+            h1 {
+                font-size: 4rem;
+                font-weight: 500;
+                margin-bottom: 0.8rem;
+            }
+
+            h3 {
+                font-size: 2.4rem;
+                font-weight: 400;
+                margin-bottom: 2.6rem;
+                max-width: 60rem;
+                line-height: 140%;
+            }
+
+            img {
+                width: clamp(5rem, 5rem + 30vw, 39rem);
+                height: clamp(5rem, 5rem + 30vw, 39rem);
+            }
+        }
     }
 `;

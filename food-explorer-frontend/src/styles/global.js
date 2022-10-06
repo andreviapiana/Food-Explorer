@@ -31,8 +31,8 @@ export default createGlobalStyle`
             width: 6px;
             background-color: transparent;
             border-radius: 80px;
-            box-shadow: inset 0 0 0px 6px ${({ theme }) => theme.COLORS.BLUE_100};
-            border: solid 8px transparent;
+            box-shadow: inset 0 0 0px 6px ${({ theme }) => theme.COLORS.BLUE};
+            border: solid 10px transparent;
         }
 
         /* Chrome, Safari, Edge, Opera */

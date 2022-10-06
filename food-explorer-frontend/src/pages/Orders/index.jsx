@@ -8,8 +8,6 @@ export function Orders() {
   return(
     <Container>
       <Header />
-
-      <main>
         <Content>
           <h1>Pedidos</h1>
 
@@ -34,7 +32,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td >00000004</td>
+                    <td >00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -46,7 +44,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -58,7 +56,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -70,7 +68,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -82,7 +80,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -94,7 +92,7 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
@@ -106,18 +104,15 @@ export function Orders() {
                             <option value="delivered">🟢 Entregue</option>
                         </select> 
                     </td>
-                    <td>00000004</td>
+                    <td>00004</td>
                     <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
                     <td>20/05 às 18h00</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
           </Table>
-          
         </Content>
-      </main>
       <Footer />
     </Container>
   )

@@ -14,7 +14,7 @@ export const Content = styled.div`
     overflow: auto;
     overflow: overlay;
     padding: 3.5rem 0;
-    margin: auto;
+    margin: 0 40px;
     text-align: center;
 
 
