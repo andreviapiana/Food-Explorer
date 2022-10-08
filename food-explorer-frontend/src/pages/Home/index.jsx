@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer";
 
 import background from "../../assets/Mask group.png"
 import { Card } from "../../components/Card/index.jsx";
+import { Carousel } from "../../components/Carousel/index.jsx";
 
 export function Home() {
   
@@ -23,9 +24,21 @@ export function Home() {
                         </div>
                     </Banner>
 
-                    <p>Pratos principais</p>
+                    <div>   
+                        <p>Pratos principais</p>
 
-                    <Card />
+                        <Carousel />
+
+                        <p>Sobremesas</p>
+
+                        <Carousel />
+
+                        <p>Bebidas</p>
+
+                        <Carousel />
+                    </div>
+
+
 
                 </Content>
             <Footer />

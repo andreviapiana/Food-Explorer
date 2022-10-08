@@ -1,6 +1,8 @@
 import { Container, Content, Logo, Search, Logout, Button } from "./styles";
+
 import { Input } from '../Input';
 import { ButtonText } from "../ButtonText";
+
 import { FiSearch } from 'react-icons/fi';
 import { FiLogOut } from 'react-icons/fi';
 
