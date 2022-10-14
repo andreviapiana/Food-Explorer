@@ -1,17 +1,16 @@
 import { Container, Content } from "./styles";
 
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import { Card } from "../Card";
+
+// Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
+// Import required modules
 import { Navigation } from "swiper";
-
-import { Card } from "../Card";
 
 export function Carousel() {
 

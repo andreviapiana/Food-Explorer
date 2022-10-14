@@ -1,10 +1,9 @@
-import { Container, Content, Logo, Search, Logout, Button } from "./styles";
+import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
 
 import { Input } from '../Input';
 import { ButtonText } from "../ButtonText";
 
-import { FiSearch } from 'react-icons/fi';
-import { FiLogOut } from 'react-icons/fi';
+import { FiSearch, FiLogOut, FiUser } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import receipt from '../../assets/receipt.svg';
@@ -15,7 +14,7 @@ export function Header() {
         document.getElementById('hamburger').classList.toggle('active')
         document.getElementById('nav-menu').classList.toggle('active')
     }
-    
+
     return (
         <Container>
             <Content>
@@ -36,9 +35,7 @@ export function Header() {
 
                 <div className="nav-menu" id="nav-menu">
 
-                    <ButtonText 
-                        title=" Meus favoritos "
-                    />
+                    
 
                     <Search>
                         <Input 
@@ -53,6 +50,10 @@ export function Header() {
                         <img src={receipt} alt="receipt"/>
                         Meu pedido (0)
                     </Button>
+
+                    <Profile>
+                        <FiUser />
+                    </Profile>
 
                     <Logout>
                         <FiLogOut />

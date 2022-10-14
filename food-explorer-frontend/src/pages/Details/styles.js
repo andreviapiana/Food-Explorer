@@ -3,14 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    
     width: 100%;
+    min-width: 35rem;
     height: 100vh;
-    min-width: 350px;
 `;
 
 export const Content = styled.div`
     height: 100%;
-    margin: 0 40px;
+    
+    margin: 0 4rem;
     padding: 2.5rem 0;
 
     text-align: center;
@@ -22,9 +24,9 @@ export const Content = styled.div`
     }
 
     .description h4 {
-        margin: 20px 0 20px;
-        font-size: 32px;
-        line-height: 51.2px;
+        margin: 2rem 0 2rem;
+        font-size: 3.2rem;
+        line-height: 5.12rem;
         color: ${({ theme }) => theme.COLORS.BLUE};
     }
 
@@ -45,11 +47,11 @@ export const Content = styled.div`
         }
 
         h3 {
+            max-width: 60rem;
             font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 2.6rem;
-            max-width: 60rem;
             line-height: 140%;
+            margin-bottom: 2.6rem;
         }
 
         img {
@@ -83,7 +85,7 @@ export const Content = styled.div`
             display: flex;
             align-items: center;
             gap: 5.4rem;
-            margin-top: 43px;
+            margin-top: 4.3rem;
         }
 
         .content {
@@ -98,9 +100,9 @@ export const Content = styled.div`
             h3 {
                 font-size: 2.4rem;
                 font-weight: 400;
+                line-height: 140%;
                 margin-bottom: 2.6rem;
                 max-width: 60rem;
-                line-height: 140%;
             }
 
             img {

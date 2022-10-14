@@ -3,22 +3,23 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    
     width: 100%;
-    min-width: 320px;
+    min-width: 32rem;
     height: 100vh;
+    
     overflow: auto;
     overflow: overlay; 
 `;
 
 export const Content = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    
     width: 100%;
     max-width: 121.2rem;
     margin: auto;
-
-    display: flex;
-    flex-direction: column;
-    padding: 35px 40px;
+    padding: 3.5rem 4rem;
 
     font-family: 'Poppins', sans-serif;
 
@@ -32,12 +33,15 @@ export const Banner = styled.div`
     text-align: center;
     justify-content: space-between;
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 62px;
+
+    margin-bottom: 6.2rem;
 
     .banner {
         background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
-        border-radius: 8px;
+        border-radius: 0.8rem;
         position: relative;
+        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
+        box-shadow: 0px 0px 10px 5px #193746;
     }
 
     .title {
@@ -46,7 +50,7 @@ export const Banner = styled.div`
 
     img {
         width: 100%;
-        margin-bottom: -27px;
+        margin-bottom: -2.7rem;
         z-index: -1;
     }
 
@@ -63,8 +67,8 @@ export const Banner = styled.div`
     }
 
     @media only screen and (min-width: 1060px) {
-        margin-top: 16.4rem;
         position: relative;
+        margin-top: 16.4rem;
 
         .banner {
             display: flex;
@@ -72,20 +76,20 @@ export const Banner = styled.div`
         }
         
         .title {
-            width: 540px;
+            width: 54rem;
             height: 26rem;
-            text-align: right;
 
-            padding: 87px 46px 0 0;
+            padding: 8.7rem 4.6rem 0 0;
+
+            text-align: right;
         }
 
         img {
-            width: 656px;
+            width: 65.6rem;
             position: absolute;
-            bottom: 13px;
+            bottom: 1.3rem;
             z-index: 1;
             left: -5rem;
         }
-
     }
 `;

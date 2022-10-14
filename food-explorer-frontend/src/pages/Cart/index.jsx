@@ -3,15 +3,14 @@ import { Container, Content } from "./styles.js";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { OrderCard } from "../../components/OrderCard";
-import { PaymentCard } from "../../components/PaymentCard";
-
+import { PaymentCard2 } from "../../components/PaymentCard2";
 
 export function Cart() {
+  
   return(
     <Container>
       <Header />
         <Content>
-
             <div className="content">
               
               <div className="order-wrapper">
@@ -30,15 +29,15 @@ export function Cart() {
               </div>
 
               <div className="payment-wrapper">
-                <h2>Pagamento</h2>
+                  <h2>Pagamento</h2>
 
                   <div>
-                    <PaymentCard />
+                    <PaymentCard2 />
                   </div>
               </div>
             </div>
         </Content>
       <Footer />
     </Container>
-  )
+  );
 }

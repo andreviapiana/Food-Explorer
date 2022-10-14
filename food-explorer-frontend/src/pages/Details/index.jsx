@@ -6,7 +6,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Ingredients } from "../../components/Ingredients";
 import { PurchaseCard } from "../../components/PurchaseCard";
 import { RiArrowLeftSLine } from 'react-icons/ri';
-import Ravanello from '../../assets/Ravanello.png';
+import ravanello from '../../assets/Ravanello.png';
 
 export function Details() {
   
@@ -24,7 +24,7 @@ export function Details() {
           <div className="content">
 
             <div className="dish">
-              <img src={Ravanello} alt="Logo" />
+              <img src={ravanello} alt="Logo" />
               <div className="description">
 
                 <h1>Salada Ravanello</h1>

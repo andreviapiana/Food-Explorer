@@ -11,6 +11,41 @@ export const Container = styled.header`
     
     justify-content: center;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
+
+    -webkit-box-shadow: 0px 0px 10px 5px #193746; 
+    box-shadow: 0px 0px 10px 5px #193746;
+
+    // ================= KEYFRAMES ================= //
+    @keyframes scale-up-center {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }}
+    
+    @keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }}
 `;
 
 export const Content = styled.div`
@@ -62,7 +97,7 @@ export const Content = styled.div`
             top: 10.4rem;
             
             width: 100%;
-            height: 35rem;
+            height: 44rem;
             padding: 5rem;
             border-radius: 0 0 2rem 2rem;
             border-top: 1px solid ${({ theme }) => theme.COLORS.BLUE};
@@ -122,28 +157,6 @@ export const Logo = styled.div`
         -webkit-animation: rotate-center 0.6s ease-in-out both;
         animation: rotate-center 0.6s ease-in-out both;
     }
-
-    @keyframes rotate-center {
-    0% {
-        -webkit-transform: rotate(0);
-                transform: rotate(0);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-    }}
-
-    @keyframes tracking-in-expand {
-    0% {
-        letter-spacing: -0.5em;
-        opacity: 0;
-    }
-    40% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 1;
-    }}
 `;
 
 export const Search = styled.div`
@@ -180,34 +193,25 @@ export const Logout = styled.button`
     background: none;
 
 	> svg:hover {
-	    animation: wobble-hor-bottom 0.8s both;
+	    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
         
-
     > svg {
         color: ${({ theme }) => theme.COLORS.BLUE};
         font-size: 3.2rem;
     }
+`;
 
-    @keyframes wobble-hor-bottom {
-        100% {
-            transform: translateX(0%);
-            transform-origin: 50% 50%;
-        }
-        15% {
-            transform: translateX(-15px) rotate(-6deg);
-        }
-        30% {
-            transform: translateX(12px) rotate(6deg);
-        }
-        45% {
-            transform: translateX(-10px) rotate(-3.6deg);
-        }
-        60% {
-            transform: translateX(9px) rotate(2.4deg);
-        }
-        75% {
-            transform: translateX(-5px) rotate(-1.2deg);
-        }
+export const Profile = styled.button`
+    border: none;
+    background: none;
+
+	> svg:hover {
+	    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+        
+    > svg {
+        color: ${({ theme }) => theme.COLORS.BLUE};
+        font-size: 3.2rem;
     }
 `;

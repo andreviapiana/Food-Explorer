@@ -8,6 +8,7 @@ import { Input } from "../../components/Input";
 import { IngredientsTag } from "../../components/IngredientsTag";
 import { Textarea } from "../../components/Textarea";
 import { RiArrowLeftSLine } from 'react-icons/ri';
+import { FiUpload } from "react-icons/fi";
 
 export function CreateDish() {
   
@@ -25,10 +26,16 @@ export function CreateDish() {
 
             <div className="details">
                 <div className="dishImage">
-                    <p>Imagem do prato</p>
-                    <Input
-                        placeholder="Selecione Imagem"
-                        type="text"
+                    <p>Imagem do Prato</p>
+                    <label htmlFor="dish_image">
+                        <FiUpload size={24}/> 
+                        Selecione imagem 
+                    </label>
+                    <Input 
+                        type="file"
+                        id="dish_image" 
+                        name="dish_image"
+                        accept="image/*" 
                         style={ { border: "1px solid white", borderRadius: 5 } }
                     />
                 </div>
@@ -86,8 +93,8 @@ export function CreateDish() {
             />
         </div>
 
-    </Content>
-    <Footer />
+        </Content>
+        <Footer />
     </Container>
   )
 }

@@ -12,8 +12,6 @@ export function Orders() {
           <h1>Pedidos</h1>
 
           <Table>
-
-            <div className="table">
               <table>
                 <thead>
                   <tr>
@@ -110,7 +108,6 @@ export function Orders() {
                   </tr>
                 </tbody>
               </table>
-            </div>
           </Table>
         </Content>
       <Footer />

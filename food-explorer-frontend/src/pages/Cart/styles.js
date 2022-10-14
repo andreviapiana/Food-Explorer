@@ -3,26 +3,25 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    
     width: 100%;
     min-width: 320px;
     height: 100vh;
 `;
 
 export const Content = styled.div`
+    flex-direction: column;
+    
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    overflow: overlay;
     padding: 3.5rem 0;
-    margin: 0 40px;
+    margin: auto;
+    
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 
-
-    flex-direction: column;
-
-    align-items: center;
-
-    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+    overflow: overlay;
 
     > .content {
         display: flex;

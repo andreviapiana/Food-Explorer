@@ -27,7 +27,6 @@ export function Ingredients() {
                   <p>Pão</p>
                 </div>
               </div>
-
         </Container>
-    )
+    );
 }

@@ -3,19 +3,22 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
+    
     width: 40rem;
     max-height: 48rem;
-    align-self: flex-start;
+
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
 
     > .card {
         display: flex;
-        gap: 1.4rem;
-        align-items: center;
-        height: 10.4rem;
-        overflow: auto;
         align-self: flex-start;
+        align-items: center;
+        
+        height: 10.4rem;
+        gap: 1.4rem;
+        overflow: auto;
     }
 
     > .card strong {

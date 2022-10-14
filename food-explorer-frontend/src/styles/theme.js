@@ -7,15 +7,15 @@ export default {
   
         WHITE: "#FFFFFF", /*É a cor do texto branco puro*/
         WHITE_100: "#E1E1E6", /*É a cor do texto dos Títulos*/
-        GRAY_100: "#C4C4CC", /*É a cor do texto das descrições*/
-        GRAY_300: "#7C7C8A", /*É a cor do texto nos Inputs*/
         
         BLUE: "#0099ff", /*É a cor do logo e dos textos rosas/azuis*/
         BLUE_100: "#82F3FF", /*É a cor dos preços nos produtos*/
         BLUE_200: "#001119", /*É a cor de fundo do form de login*/
         BLUE_300: "#192227", /*É a cor das bordas das tabelas*/
-
+        
+        GRAY_100: "#C4C4CC", /*É a cor do texto das descrições*/
         GRAY_200: "rgba(255, 255, 255, 0.3)", /*É a cor do texto do Footer*/
+        GRAY_300: "#7C7C8A", /*É a cor do texto nos Inputs*/
         GRAY_400: "rgba(255, 255, 255, 0.05)", /*É a cor dos botões de Pix e Cartão*/
   
   

@@ -3,15 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;
-
-    background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BLUE_300};
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-
+    
+    padding: 0 1.6rem;
+    border-radius: 0.8rem;
     border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : "none"};
 
-    border-radius: 0.8rem;
-    padding: 0 1.6rem;
-
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BLUE_300};
+    
     svg {
         vertical-align: middle;
     }
@@ -30,13 +29,13 @@ export const Container = styled.div`
     }
 
     > input {
-        height: 2.8rem;
         max-width: 13rem;
-
-        color: ${({ theme }) => theme.COLORS.WHITE};
-        background: transparent;
+        height: 2.8rem;
 
         border: none;
+        
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        background: transparent;
 
         &::placeholder {
             color: ${({ theme }) => theme.COLORS.GRAY_300};

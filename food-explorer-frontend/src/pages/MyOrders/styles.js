@@ -4,55 +4,32 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
 
-    display: grid;
-    grid-template-rows: 10.4rem auto;
-    grid-template-areas: 
-    "header"
-    "content";
-
-    > main {
-        grid-area: content;
-        overflow: auto;
-        overflow: overlay;
-        padding: 3.5rem 0;
-        height: auto;
+    footer {
+        position: absolute;
+        bottom: 0;
     }
 `;
 
 export const Content = styled.div`
-    max-width: 113.2rem;
+    max-width: 121.2rem;
     margin: auto;
-
-    display: flex;
-    flex-direction: column;
-
-
-    > div {
-        font-size: 2rem;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        gap: 4.1rem;
-        justify-content: center;
-
-    }
+    
+    padding: 3.5rem 4rem;  
 `;
 
-
-export const Table = styled.div`
-    .table {
-        max-width: 113.2rem;
-        border: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
-        border-radius: 0.8rem;
-  
+export const Table = styled.div` 
+    table {
+        display: block;
         overflow: auto;
         overflow: overlay;
-  
-        margin-top: 3.5rem;
-    } 
-
-    table {
+        white-space: nowrap;
+        
         width: 100%;
+        max-height: 55rem;
+        margin-top: 3.5rem;
+        
+        border: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        border-radius: 0.8rem;
         border-collapse: collapse;
     }
 
@@ -62,15 +39,16 @@ export const Table = styled.div`
     }
 
     table th {
-        text-align: left;
-        font-weight: bold;
-        padding: 2.1rem 2.4rem;
-        height: 6.4rem;
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
-
         position: sticky;
         top: 0px;
+
+        height: 6.4rem;
+        padding: 2.1rem 2.4rem;
         border-bottom: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        
+        text-align: left;
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        background: ${({ theme }) => theme.COLORS.BLUE_200};
     }
 
     table th:first-child {
@@ -90,8 +68,11 @@ export const Table = styled.div`
     }
 
     table tr {
-        background: var(--tabletr-color);
         border-bottom: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+    }
+
+    table tr:nth-child(even) {
+        background: ${({ theme }) => theme.COLORS.BLUE_200};
     }
 
     table tr:last-child {
@@ -99,14 +80,12 @@ export const Table = styled.div`
     }
 
     table td {
-        padding: 1.6rem 2.4rem;
-        font-weight: 400;
         height: 5.4rem;
+        padding: 1.6rem 2.4rem;
     }
 
     table td span {
         font-size: 8px;
-        vertical-align: middle;
     }
 
     table th:nth-child(-n+3),

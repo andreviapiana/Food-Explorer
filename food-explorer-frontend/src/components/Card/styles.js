@@ -1,76 +1,60 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-      width: 300px;
-      height: 512px;
-      background: rgba(0, 0, 0, 0.32);
-      border: 1px solid rgba(0, 0, 0, 0.65);
-      border-radius: 8px;
       position: relative;
+      
+      width: 30rem;
+      height: 51.2rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(0, 0, 0, 0.65);
+      
+      background: rgba(0, 0, 0, 0.32);
 
-      .btn-fav {
-        position: absolute;
-          top: 12px;
-          right: 12px;
+      .favButton {
+          position: absolute;
+          top: 1.2rem;
+          right: 1.2rem;
           background: transparent;
           border: none;
           color: ${({ theme }) => theme.COLORS.WHITE};
-          font-size: 30px;
+          font-size: 3rem;
       }
 
       .container {
-          padding: 38px 26px;
           display: grid;
+          padding: 3.8rem 2.6rem;
           text-align: center;
-          img {
-          margin: 30px auto 16px;
-          width: 176px;
-          height: 176px;
+
+          > img {
+            width: 17.6rem;
+            height: 17.6rem;
+            margin: 3rem auto 1.6rem;
+          }
       }
 
       .product-title {
           font-weight: 700;
-          font-size: 24px;
+          font-size: 2.4rem;
           color: ${({ theme }) => theme.COLORS.WHITE};
-          font-family: 'Poppins', sans-serif;
-          margin-bottom: 16px;
+          
+          margin-bottom: 1.8rem;
       }
       
       .description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.4rem;
         font-weight: 400;
-        font-size: 14px;
-        font-family: 'Roboto', sans-serif;
-        color: ${({ theme }) => theme.COLORS.GRAY_300};
-        margin-bottom: 16px;
+        color: ${({ theme }) => theme.COLORS.GRAY_100};
+
+        margin-bottom: 1.6rem;
       }
-      .price-title {
-        color: ${({ theme }) => theme.COLORS.PRICE};
+
+      .price {
         font-family: 'Roboto', sans-serif;
+        font-size: 3.2rem;
         font-weight: 400;
-        font-size: 32px;
-        margin-bottom: 16px;
+        color: ${({ theme }) => theme.COLORS.BLUE};
+
+        margin-bottom: 1.6rem;
       }
-      .content-includes {
-        display: flex;
-        font-size: 20px;
-        font-family: 'Roboto', sans-serif;
-        align-items: center;
-        justify-content: center;
-        .btn {
-          background: transparent;
-          border: none;
-          color: ${({ theme }) => theme.COLORS.WHITE};
-          font-size: 20px;
-          margin: 10px;
-        }
-        .count-item {
-          border: 1px solid ${({ theme }) => theme.COLORS.GRAY_300};
-          padding: 1px 3px;
-          border-radius: 2px;
-        }
-        button {
-          max-width: 92px;
-        }
-    }
-  }
-`
+`;

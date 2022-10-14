@@ -13,12 +13,18 @@ import checkCircle from '../../assets/CheckCircle.svg';
 import knife from '../../assets/knife.svg';
 import cart from '../../assets/cart.svg';
 
-export function PaymentCard() { 
+export function PaymentCard2(props) {
+
+    const [game, setGame] = useState('start')
+
+    const handleClick = (gameState) => {
+        setGame(gameState)
+    }
+
+
+    // ==== Credit Card Inputs Config ==== //
     const [num, setNum] = useState('');
     const [cvc, setCvc] = useState('');
-    const [pix, setPix] = useState(false);
-
-    const [hidePix, setHidePix] = useState(true);
 
     const handleNumChange = event => {
         const limit = 16;
@@ -29,39 +35,36 @@ export function PaymentCard() {
         const limit = 3;
         setCvc(event.target.value.slice(0, limit));
     };
-
-
-    function selectCreditCard() {
-        document.getElementById('credit').classList.add('active')
-        document.getElementById('pix').classList.remove('active')
-      }
-    
-    function selectPix() {
-        document.getElementById('pix').classList.add('active')
-        document.getElementById('credit').classList.remove('active')
-        document.getElementById('qrCode').classList.remove('hide')
-        document.getElementById('cart').classList.add('hide')
-    }
-
-
-
-    function paymentPix() {
-        document.getElementById('qrCode').classList.add('hide')
-        document.getElementById('clock').classList.remove('hide')
-    }
     
     return(
         <Container>
 
             <div className="buttons">
             
-                <button className="pix" id="pix" onClick={selectPix}><img src={logoPix} alt="Logo Pix" />PIX</button>
+                <button onClick={() => props.handleClick('playing')} className="pix" id="pix"><img src={logoPix} alt="Logo Pix" />PIX</button>
                 
-                <button className="credit" id="credit" onClick={selectCreditCard}><img src={cardImg} alt="Logo Cartão de Crédito" />Crédito</button>
+                <button className="credit" id="credit" ><img src={cardImg} alt="Logo Cartão de Crédito" />Crédito</button>
 
             </div>
             
             <Content>
+
+            {(() => {
+                switch (game) {
+                case 'start':
+                    return <div><p>Ae caraio</p></div>
+                case 'playing':
+                    return <div><p>Ae caraio2</p></div>
+                case 'won':
+                    return <Won handleClick={handleClick} />
+                case 'lost':
+                    return <Lost handleClick={handleClick} />
+                default:
+                    return null
+                }
+            })()}
+
+                
 
                 <div className="creditCard hide" id="creditCard">
 
@@ -115,10 +118,7 @@ export function PaymentCard() {
                     <p>Pagamento aprovado</p>
                 </div>
 
-                <div className="cart " id="cart">
-                    <img src={cart} alt="Imagem do carrinho de compras" />
-                    <p>Selecione uma forma de pagamento acima!</p>
-                </div>
+                
 
                 <div className="qrCode hide" id="qrCode">
                     <div className="qr">
@@ -128,7 +128,6 @@ export function PaymentCard() {
                     <Button
                         title='Confirmar pagamento'
                         icon={BsReceipt}
-                        onClick={() => paymentPix() }
                         style={ { height: 56 } }
                     /> 
                 </div>

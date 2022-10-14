@@ -1,8 +1,16 @@
 const knex = require("../database/knex");
 
+const AppError = require('../utils/AppError');
+
 class DishesController {
     async create(request, response) {
         const { title, description, category, price, image, ingredients } = request.body;
+
+        const checkDishAlreadyExists = await knex("dishes").where({title}).first();
+    
+        if(checkDishAlreadyExists){
+            throw new AppError("Este prato já existe no cardápio.")
+        }
 
         const dish_id = await knex("dishes").insert({
             title,
@@ -25,8 +33,7 @@ class DishesController {
 
         await knex("ingredients").insert(ingredientsInsert);
 
-        response.json();
-        
+        response.json(); 
     }
 
     async show(request, response) {

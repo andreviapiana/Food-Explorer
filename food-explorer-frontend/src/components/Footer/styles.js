@@ -3,22 +3,21 @@ import styled from "styled-components";
 export const Container = styled.footer`
     width: 100%;
     height: 7.7rem;
+    
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     align-items: center;
 `;
 
 export const Content = styled.div`
-        max-width: 121.2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        vertical-align: middle;
-        align-content: center;
+
+        max-width: 121.2rem;
+        padding: 0 4rem;
         margin: auto;
 
         color: ${({ theme }) => theme.COLORS.GRAY_200};
-
-        padding: 0 4rem;
 
         > p {
             font-size: 1.4rem;
@@ -30,8 +29,10 @@ export const Content = styled.div`
 export const Logo = styled.div`
     .logo {
         display: flex;
+        
+        height: 7.7rem;
         gap: 1.123rem;
-        height: 77px;
+
         align-items: center;
         white-space: nowrap;
     }

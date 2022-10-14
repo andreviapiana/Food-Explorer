@@ -1,60 +1,37 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    min-width: 320px;
     height: 100vh;
-    overflow: auto;
-    overflow: overlay; 
+
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
 `;
 
 export const Content = styled.div`
-    height: 100%;
+    max-width: 121.2rem;
     margin: auto;
-
-    display: flex;
-    flex-direction: column;
-    padding: 35px 40px;
-
-    > h1 {
-        font-weight: 500;
-        font-family: 'Poppins', sans-serif;
-    }
-    > div {
-        font-size: 2rem;
-        font-weight: 500;
-
-        display: flex;
-        align-items: center;
-        gap: 4.1rem;
-        justify-content: center;
-
-    }
-
-    @media only screen and (min-width: 768px) {
-        height: 100%;
-    }
+    
+    padding: 3.5rem 4rem;  
 `;
 
 
 export const Table = styled.div`
-    .table {
-        max-width: 68.8rem;
-        height: 38.7rem;
-        border: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
-        border-radius: 0.8rem;
-
+    table {
+        display: block;
         overflow: auto;
         overflow: overlay;
-  
+        white-space: nowrap;
+        
+        width: 100%;
+        max-height: 54.4rem;
         margin-top: 3.5rem;
-    } 
-
-    table {
+        
+        border: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        border-radius: 0.8rem;
         border-collapse: collapse;
-        word-break: break-word;
     }
 
     table * {
@@ -63,12 +40,16 @@ export const Table = styled.div`
     }
 
     table th {
-        text-align: left;
-        font-weight: bold;
-        padding: 2.1rem 2.4rem;
+        position: sticky;
+        top: 0px;
+
         height: 6.4rem;
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        padding: 2.1rem 2.4rem;
         border-bottom: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        
+        text-align: left;
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        background: ${({ theme }) => theme.COLORS.BLUE_200};
     }
 
     table th:first-child {
@@ -91,14 +72,17 @@ export const Table = styled.div`
         border-bottom: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
     }
 
+    table tr:nth-child(even) {
+        background: ${({ theme }) => theme.COLORS.BLUE_200};
+    }
+
     table tr:last-child {
         border-bottom: none;
     }
 
     table td {
-        padding: 1.6rem 2.4rem;
-        font-weight: 400;
         height: 8rem;
+        padding: 1.6rem 2.4rem;
     }
 
     table th:nth-child(-n+3),
@@ -114,15 +98,5 @@ export const Table = styled.div`
         border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
 
         padding: 1.3rem 1.6rem;
-    }
-
-    @media only screen and (min-width: 768px) {
-        .table {
-        max-width: 121.2rem;
-        }
-        
-        select {
-            width: 17.5rem;
-        }
     }
 `;

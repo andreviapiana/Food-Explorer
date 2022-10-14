@@ -1,11 +1,11 @@
 import { Container } from "./styles";
 import { useState } from "react";
 
+import { Button } from "../Button";
 import { ButtonText } from "../ButtonText";
 
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { BsReceipt } from 'react-icons/bs';
-import { Button } from "../Button";
 
 export function PurchaseCard() {
     const [counter, setCounter] = useState(1);
@@ -26,7 +26,6 @@ export function PurchaseCard() {
   
     return(
         <Container>
-                
                 <div className="counter">
                     <ButtonText 
                         icon={FiMinus}
@@ -44,8 +43,6 @@ export function PurchaseCard() {
                     icon={BsReceipt}
                     style={ { height: 56, width: 92, padding: '12px 4px' } }
                 />
-                
-
         </Container>
-    )
+    );
 }

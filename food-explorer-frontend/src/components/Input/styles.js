@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100%;
     display: flex;
     align-items: center;
 
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    color: ${({ theme }) => theme.COLORS.GRAY_200};
-
+    width: 100%;
     border-radius: 5px;
 
-    > input {
-        height: 48px;
-        width: 100%;
+    color: ${({ theme }) => theme.COLORS.GRAY_200};
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-        padding: 16px 14px;
+    > input {
+        width: 100%;
+        height: 4.8rem;
+
+        padding: 1.6rem 1.4rem;
+        border: 0;
 
         color: ${({ theme }) => theme.COLORS.GRAY_200};
         background: transparent;
-        border: 0;
 
         &:placeholder {
             color: ${({ theme }) => theme.COLORS.GRAY_200};
@@ -26,6 +26,6 @@ export const Container = styled.div`
     }
     
     > svg {
-        margin-left: 14px;
+        margin-left: 1.4rem;
     }
 `;

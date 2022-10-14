@@ -2,10 +2,9 @@ import { Container, Content, Banner } from "./styles.js";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { Carousel } from "../../components/Carousel/index.jsx";
 
 import background from "../../assets/Mask group.png"
-import { Card } from "../../components/Card/index.jsx";
-import { Carousel } from "../../components/Carousel/index.jsx";
 
 export function Home() {
   
@@ -37,11 +36,8 @@ export function Home() {
 
                         <Carousel />
                     </div>
-
-
-
                 </Content>
             <Footer />
         </Container>
-    )
+    );
 }
