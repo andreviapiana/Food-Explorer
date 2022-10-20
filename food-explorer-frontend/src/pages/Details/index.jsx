@@ -8,43 +8,57 @@ import { PurchaseCard } from "../../components/PurchaseCard";
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import ravanello from '../../assets/Ravanello.png';
 
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../styles/global'
+import lightTheme from '../../styles/lightTheme';
+import darkTheme from '../../styles/theme';
+
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/useDarkMode';
+
 export function Details() {
-  
-  return(
-    <Container>
-      <Header />
-        <Content>
+    const [ theme, toggleTheme ] = useDarkMode();
+    const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
-          <ButtonText 
-            title="Voltar" 
-            icon={RiArrowLeftSLine} 
-            style={ { fontWeight: 500 } }
-          />
+    return(
+        <ThemeProvider theme={themeMode}>
+            <GlobalStyles />
+                <Container>
+                    <Header />
+                        <Content>
 
-          <div className="content">
-
-            <div className="dish">
-              <img src={ravanello} alt="Logo" />
-              <div className="description">
-
-                <h1>Salada Ravanello</h1>
-
-                <h3>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h3>
-
-                <Ingredients />
-
-                <div className="price">
-                  <h4>R$25,97</h4>
-                  
-                  <PurchaseCard />
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </Content>
-      <Footer />
-    </Container>
-  )
+                            <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
+                
+                            <ButtonText 
+                                title="Voltar" 
+                                icon={RiArrowLeftSLine} 
+                            />
+                    
+                            <div className="content">
+                    
+                                <div className="dish">
+                                <img src={ravanello} alt="Logo" />
+                                <div className="description">
+                    
+                                    <h1>Salada Ravanello</h1>
+                    
+                                    <h3>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h3>
+                    
+                                    <Ingredients />
+                    
+                                    <div className="price">
+                                    <h4>R$25,97</h4>
+                                    
+                                    <PurchaseCard />
+                                    </div>
+                    
+                                </div>
+                                </div>
+                            </div>
+                
+                        </Content>
+                    <Footer />
+                </Container>
+        </ThemeProvider>
+    );
 }

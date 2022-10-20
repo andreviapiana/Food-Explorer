@@ -10,87 +10,103 @@ import { FiUser, FiMail, FiLock, FiCamera, FiShoppingBag, FiHeart } from 'react-
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import logo from '../../assets/logo.svg';
 
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../styles/global'
+import lightTheme from '../../styles/lightTheme';
+import darkTheme from '../../styles/theme';
+
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/useDarkMode';
+
 export function Profile() {
+    const [ theme, toggleTheme ] = useDarkMode();
+    const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
     return (
-        <Container>
-            <Header />
-                <Content>
-                    <div className='card'>
-                        <Form>
-                            <Avatar>
-                                <img 
-                                    src={avatarPlaceholder} 
-                                    alt="Foto do usuário" 
-                                />
+        <ThemeProvider theme={themeMode}>
+            <GlobalStyles />
+                <Container>
+                    <Header />
+                        <Content>
+                            
+                            <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
 
-                                <label htmlFor="avatar">
-                                    <FiCamera />
+                            <div className='card'>
+                                <Form>
+                                    <Avatar>
+                                        <img 
+                                            src={avatarPlaceholder} 
+                                            alt="Foto do usuário" 
+                                        />
 
-                                    <input
-                                        id="avatar"
-                                        type="file"
-                                        accept="image/*"
+                                        <label htmlFor="avatar">
+                                            <FiCamera />
+
+                                            <input
+                                                id="avatar"
+                                                type="file"
+                                                accept="image/*"
+                                            />
+
+                                        </label>
+                                    </Avatar>
+
+                                    <Input 
+                                        placeholder="Nome"
+                                        type="text"
+                                        icon={FiUser}
                                     />
 
-                                </label>
-                            </Avatar>
+                                    <Input 
+                                        placeholder="E-mail"
+                                        type="text"
+                                        icon={FiMail}
+                                    />
 
-                            <Input 
-                                placeholder="Nome"
-                                type="text"
-                                icon={FiUser}
-                            />
+                                    <Input 
+                                        placeholder="Senha atual"
+                                        type="password"
+                                        icon={FiLock}
+                                    />
 
-                            <Input 
-                                placeholder="E-mail"
-                                type="text"
-                                icon={FiMail}
-                            />
+                                    <Input 
+                                        placeholder="Nova senha"
+                                        type="password"
+                                        icon={FiLock}
+                                    />
 
-                            <Input 
-                                placeholder="Senha atual"
-                                type="password"
-                                icon={FiLock}
-                            />
+                                    <Button title="Salvar" />
+                                </Form>
 
-                            <Input 
-                                placeholder="Nova senha"
-                                type="password"
-                                icon={FiLock}
-                            />
+                                <Infos>
+                                    <Logo>
+                                        <div className="logo">
+                                                <img src={logo} alt="" />
+                                        </div>
+                                    </Logo>
+                                    
+                                    <p>Olá <span>André</span>, acesse a opção desejada:</p>
 
-                            <Button title="Salvar" />
-                        </Form>
+                                    <Button 
+                                        title="Meus pedidos"
+                                        icon={FiShoppingBag}
+                                    />
 
-                        <Infos>
-                            <Logo>
-                                <div className="logo">
-                                        <img src={logo} alt="" />
-                                </div>
-                            </Logo>
-                            
-                            <p>Olá <span>André</span>, acesse a opção desejada:</p>
+                                    <Button 
+                                        title="Meus Favoritos"
+                                        icon={FiHeart}
+                                    />
 
-                            <Button 
-                                title="Meus pedidos"
-                                icon={FiShoppingBag}
-                            />
-
-                            <Button 
-                                title="Meus Favoritos"
-                                icon={FiHeart}
-                            />
-
-                            <Button 
-                                title="Contato"
-                                icon={FiMail}
-                                onClick={() => window.location = 'mailto:contato@foodexplorer.com'}
-                            />
-                        </Infos>
-                    </div>
-                </Content>
-            <Footer />
-        </Container>
+                                    <Button 
+                                        title="Contato"
+                                        icon={FiMail}
+                                        onClick={() => window.location = 'mailto:contato@foodexplorer.com'}
+                                    />
+                                </Infos>
+                            </div>
+                        </Content>
+                    <Footer />
+                </Container>
+        </ThemeProvider>
     );
 }

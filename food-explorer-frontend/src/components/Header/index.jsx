@@ -1,8 +1,5 @@
 import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
 
-import { Input } from '../Input';
-import { ButtonText } from "../ButtonText";
-
 import { FiSearch, FiLogOut, FiUser } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
@@ -35,13 +32,11 @@ export function Header() {
 
                 <div className="nav-menu" id="nav-menu">
 
-                    
-
                     <Search>
-                        <Input 
-                            placeholder="Busque pelas opções de pratos" 
-                            icon={FiSearch} 
-                            />
+                        <label>
+                            <FiSearch size={24}/>
+                            <input type="text" placeholder="Busque pelas opções de pratos"/>
+                        </label>
                     </Search>
 
                     <Button

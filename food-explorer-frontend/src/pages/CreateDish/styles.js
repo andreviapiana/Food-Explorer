@@ -14,22 +14,28 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    
     width: 100%;
     max-width: 121.2rem;
     height: 100%;
     margin: auto;
+    padding: 3.5rem 4rem;
+
+    overflow: auto;
+    overflow: overlay;    
     
     .button {
         display: flex;
         justify-content: center;
-        margin: 2.4rem 0 2.4rem;
+        margin-top: 3.2rem;
     }
 
     @media only screen and (min-width: 768px) {
         .button {
             align-self: flex-end;
             justify-content: end;
-            margin: 3.2rem  4rem;
         }
     }
 `;
@@ -38,7 +44,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     
-    margin: 3.2rem 4rem 0;
+
     gap: 3.2rem;
 
     h1 {

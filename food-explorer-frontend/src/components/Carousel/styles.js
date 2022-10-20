@@ -55,11 +55,11 @@ export const Content = styled.div`
     }
 
     .swiper-button-prev {
-        background: linear-gradient(to left, transparent 0%, #000A0F 100% 0%, transparent 100%);
+        background: linear-gradient(to left, transparent 0%, ${({ theme }) => theme.COLORS.BACKGROUND_900} 100% 0%, transparent 100%);
     }
 
     .swiper-button-next {
-        background: linear-gradient(to right, transparent 0%, #000A0F 100% 0%, transparent 100%);
+        background: linear-gradient(to right, transparent 0%, ${({ theme }) => theme.COLORS.BACKGROUND_900} 100% 0%, transparent 100%);
     }
 `;
 

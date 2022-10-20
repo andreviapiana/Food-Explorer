@@ -42,7 +42,7 @@ export function Carousel() {
                         },
                         "@1.20": {
                           slidesPerView: 4,
-                          spaceBetween: 100,
+                          spaceBetween: 130,
                         },
                     }}
                     navigation={true}

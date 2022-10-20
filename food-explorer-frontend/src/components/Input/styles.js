@@ -10,7 +10,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_200};
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-    > input {
+    input {
         width: 100%;
         height: 4.8rem;
 
@@ -23,6 +23,11 @@ export const Container = styled.div`
         &:placeholder {
             color: ${({ theme }) => theme.COLORS.GRAY_200};
         }
+    }
+
+    input:focus {
+        -webkit-box-shadow: 0px 0px 10px 5px #193746; 
+        box-shadow: 0px 0px 10px 5px #193746;
     }
     
     > svg {

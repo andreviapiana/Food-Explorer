@@ -13,16 +13,19 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    max-width: 121.2rem;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     
-    padding: 4rem;
+    width: 100%;
+    max-width: 121.2rem;
     margin: auto;
+    padding: 0 4rem;
     
     .card {
         -webkit-box-shadow: 0px 0px 10px 5px #193746; 
         box-shadow: 0px 0px 10px 5px #193746;
         border-radius: 1rem;
+        margin-top: 4rem;
     }
     
     @media only screen and (min-width: 768px) {

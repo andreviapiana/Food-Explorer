@@ -10,91 +10,105 @@ import { Textarea } from "../../components/Textarea";
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { FiUpload } from "react-icons/fi";
 
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../styles/global'
+import lightTheme from '../../styles/lightTheme';
+import darkTheme from '../../styles/theme';
+
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/useDarkMode';
+
 export function CreateDish() {
+    const [ theme, toggleTheme ] = useDarkMode();
+    const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
   
-  return(
-    <Container>
-      <Header />
+    return(
+        <ThemeProvider theme={themeMode}>
+            <GlobalStyles />
+                <Container>
+                    <Header />
 
-        <Content>
+                        <Content>
 
-        <Form>
-            <header>
-                <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
-                <h1>Editar prato</h1>
-            </header>
+                        <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
 
-            <div className="details">
-                <div className="dishImage">
-                    <p>Imagem do Prato</p>
-                    <label htmlFor="dish_image">
-                        <FiUpload size={24}/> 
-                        Selecione imagem 
-                    </label>
-                    <Input 
-                        type="file"
-                        id="dish_image" 
-                        name="dish_image"
-                        accept="image/*" 
-                        style={ { border: "1px solid white", borderRadius: 5 } }
-                    />
-                </div>
-                
-                <div className="dish">
-                    <p>Nome do prato</p>
-                    <Input
-                        placeholder="Ex.: Salada Caesar"
-                        type="text"
-                        style={ { border: "1px solid white", borderRadius: 5 } }
-                    />
-                </div>
-            </div>
+                        <Form>
+                            <header>
+                                <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
+                                <h1>Editar prato</h1>
+                            </header>
 
-            <div className="ingredientsTag">
-                <div>
-                    <p>Ingredientes</p>
-                    <div className="ingredients">
-                        <IngredientsTag 
-                            value="Pão naan" 
-                        />
-                        <IngredientsTag 
-                            value="Pão naan" 
-                        />
-                        <IngredientsTag 
-                            value="Pão naan" 
-                        />
-                        <IngredientsTag 
-                            isNew 
-                            placeholder="Adicionar" 
-                        />
-                    </div>
-                </div>
-                <div className="price">
-                    <p>Preço</p>
-                    <Input
-                        placeholder="R$ 00,00"
-                        type="number"
-                        style={ { border: "1px solid white", borderRadius: 5 } }
-                    />
-                </div>
-            </div>
+                            <div className="details">
+                                <div className="dishImage">
+                                    <p>Imagem do Prato</p>
+                                    <label htmlFor="dish_image">
+                                        <FiUpload size={24}/> 
+                                        Selecione imagem 
+                                    </label>
+                                    <Input 
+                                        type="file"
+                                        id="dish_image" 
+                                        name="dish_image"
+                                        accept="image/*" 
+                                        style={ { border: "1px solid white", borderRadius: 5 } }
+                                    />
+                                </div>
+                                
+                                <div className="dish">
+                                    <p>Nome do prato</p>
+                                    <Input
+                                        placeholder="Ex.: Salada Caesar"
+                                        type="text"
+                                        style={ { border: "1px solid white", borderRadius: 5 } }
+                                    />
+                                </div>
+                            </div>
 
-            <div className="textarea">
-                <p>Descrição</p>
-                <Textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
-            </div>
+                            <div className="ingredientsTag">
+                                <div>
+                                    <p>Ingredientes</p>
+                                    <div className="ingredients">
+                                        <IngredientsTag 
+                                            value="Pão naan" 
+                                        />
+                                        <IngredientsTag 
+                                            value="Pão naan" 
+                                        />
+                                        <IngredientsTag 
+                                            value="Pão naan" 
+                                        />
+                                        <IngredientsTag 
+                                            isNew 
+                                            placeholder="Adicionar" 
+                                        />
+                                    </div>
+                                </div>
+                                <div className="price">
+                                    <p>Preço</p>
+                                    <Input
+                                        placeholder="R$ 00,00"
+                                        type="number"
+                                        style={ { border: "1px solid white", borderRadius: 5 } }
+                                    />
+                                </div>
+                            </div>
 
-        </Form>
+                            <div className="textarea">
+                                <p>Descrição</p>
+                                <Textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
+                            </div>
 
-        <div className="button">
-            <Button 
-                title="Salvar alterações"
-                style={ { width: '31.54%' } }
-            />
-        </div>
+                        </Form>
 
-        </Content>
-        <Footer />
-    </Container>
-  )
+                        <div className="button">
+                            <Button 
+                                title="Salvar alterações"
+                            />
+                        </div>
+
+                        </Content>
+                        <Footer />
+                </Container>
+        </ThemeProvider>
+    );
 }

@@ -95,6 +95,7 @@ export const Content = styled.div`
             position: fixed;
             left: -100%;
             top: 10.4rem;
+            z-index: 9999;
             
             width: 100%;
             height: 44rem;
@@ -153,16 +154,44 @@ export const Logo = styled.div`
     }
 
     .logo img:hover {
-
         -webkit-animation: rotate-center 0.6s ease-in-out both;
         animation: rotate-center 0.6s ease-in-out both;
     }
 `;
 
 export const Search = styled.div`
-    display: flex;
-    align-items: center;
+    align-self: center;
+
     width: 100%;
+    border-radius: 5px;
+
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+    input {
+        width: 100%;
+        height: 4.8rem;
+
+        padding: 1.6rem;
+        border: 0;
+
+        color: ${({ theme }) => theme.COLORS.GRAY_200};
+        background: transparent;
+
+        &:placeholder {
+            color: ${({ theme }) => theme.COLORS.GRAY_200};
+        }
+    }
+
+    label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 1.6rem;
+    } 
+
+    svg {
+        color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
 `;
 
 export const Button = styled.button`

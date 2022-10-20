@@ -10,17 +10,19 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     
-    margin: 0 4rem;
-    padding: 2.5rem 0;
-
-    text-align: center;
+    width: 100%;
+    max-width: 121.2rem;
+    height: 100%;
+    margin: auto;
+    padding: 3.5rem 4rem;
 
     .description {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center;   
     }
 
     .description h4 {
@@ -30,8 +32,9 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.BLUE};
     }
 
-    > button:first-child {
+    > button:nth-child(2) {
         font-size: 2.4rem;
+        font-weight: 500;
     }
 
     .content {
@@ -39,6 +42,7 @@ export const Content = styled.div`
         font-size: 2rem;
         line-height: 4.75rem;
         margin-top: 1rem;
+        text-align: center;
 
         h1 {
             font-size: 3rem;
@@ -64,7 +68,7 @@ export const Content = styled.div`
         width: 100%;
         max-width: 121.2rem;
         margin: auto;
-        padding: 2.5rem 4rem;
+        padding: 3.5rem 4rem;
 
         .dish {
             display: flex;
