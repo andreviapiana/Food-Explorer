@@ -105,7 +105,7 @@ export const Content = styled.div`
             
             transition: 0.3s;
             
-            background-color: ${({ theme }) => theme.COLORS.BLACK};
+            background-color: ${({ theme }) => theme.COLORS.BLUE_200};
             box-shadow:
                 0 10px 27px rgba(0, 0, 0, 0.05);
         }

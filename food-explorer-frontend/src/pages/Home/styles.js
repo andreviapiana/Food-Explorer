@@ -37,7 +37,7 @@ export const Banner = styled.div`
     margin-bottom: 6.2rem;
 
     .banner {
-        background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
+        background: linear-gradient(180deg, ${({ theme }) => theme.COLORS.BLUE_400} 0%, ${({ theme }) => theme.COLORS.BLUE_500} 100%);
         border-radius: 0.8rem;
         position: relative;
         -webkit-box-shadow: 0px 0px 10px 5px #193746; 

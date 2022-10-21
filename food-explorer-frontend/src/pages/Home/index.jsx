@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Carousel } from "../../components/Carousel";
 
-import background from "../../assets/Mask group.png"
+import background from "../../assets/Mask group99.png"
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'

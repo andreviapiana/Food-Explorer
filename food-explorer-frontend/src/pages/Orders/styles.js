@@ -42,7 +42,7 @@ export const Table = styled.div`
 
     table * {
         font-size: 1.4rem;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        color: ${({ theme }) => theme.COLORS.WHITE};
     }
 
     table th {
@@ -93,7 +93,7 @@ export const Table = styled.div`
 
     table th:nth-child(-n+3),
     table td:nth-child(-n+3) {
-    border-right: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        border-right: 2px solid ${({ theme }) => theme.COLORS.BLUE_300};
     }
 
     select {

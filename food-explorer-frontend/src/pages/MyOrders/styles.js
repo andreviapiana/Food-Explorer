@@ -41,7 +41,7 @@ export const Table = styled.div`
 
     table * {
         font-size: 1.4rem;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        color: ${({ theme }) => theme.COLORS.WHITE};
     }
 
     table th {

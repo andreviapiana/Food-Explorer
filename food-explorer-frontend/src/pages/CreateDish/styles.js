@@ -168,7 +168,7 @@ export const Form = styled.form`
             margin-bottom: 0;
 
             border-radius: 0.8rem;
-            border: 1px solid white;
+            border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
         }
 
         .ingredientsTag { 

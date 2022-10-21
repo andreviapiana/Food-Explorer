@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { CreateDish } from './pages/CreateDish';
+import { MyOrders } from './pages/MyOrders';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <CreateDish />
+        <MyOrders />
     </React.StrictMode>
 )

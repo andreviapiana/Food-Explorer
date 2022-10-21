@@ -19,7 +19,7 @@ export const Content = styled.div`
     width: 100%;
     max-width: 121.2rem;
     margin: auto;
-    padding: 0 4rem;
+    padding: 4rem;
     
     .card {
         -webkit-box-shadow: 0px 0px 10px 5px #193746; 
@@ -42,23 +42,53 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
     
-    padding: 5rem 5rem;
+    padding: 5rem;
     border-radius: 1rem 1rem 0 0;
     border: 1px solid ${({ theme }) => theme.COLORS.BLUE};
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
-
-    > div:nth-child(2) {
-        margin-bottom: 0.6rem;
-    }
-
-    > div:nth-child(4) {
-        margin-top: 2.4rem;
-        margin-bottom: 0.6rem;
-    }
-
-    > div:nth-child(5) {
-        margin-bottom: 2.4rem;
+    
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        
+        width: 100%;
+        
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+        
+        input {
+            height: 4.8rem;
+            
+            padding: 1.6rem;
+            border: 0;
+            
+            color: ${({ theme }) => theme.COLORS.GRAY_200};
+            background: transparent;
+            
+            &:placeholder {
+                color: ${({ theme }) => theme.COLORS.GRAY_200};
+            }
+        }
+        
+        label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 1.6rem;
+            align-self: center;
+            
+            width: 100%;
+            
+            border-radius: 0.5rem;
+            border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+            
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        }
+        
+        svg {
+            color: ${({ theme }) => theme.COLORS.GRAY_200};
+        }
     }
 
     @media only screen and (min-width: 768px) {
@@ -69,7 +99,7 @@ export const Form = styled.form`
 export const Avatar = styled.div`
     position: relative;
     margin: 0 3rem 3rem;
-
+    
     > img {
         width: 18.6rem;
         height: 18.6rem;
@@ -77,7 +107,7 @@ export const Avatar = styled.div`
         object-fit: cover;
         border: 2px solid ${({ theme }) => theme.COLORS.BLUE};
     }
-
+    
     > label {
         display: flex;
         align-items: center;
@@ -90,7 +120,7 @@ export const Avatar = styled.div`
         width: 4.8rem;
         height: 4.8rem;
         
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        background-color: ${({ theme }) => theme.COLORS.BLUE_500};
         border-radius: 50%;
         border: 3px solid ${({ theme }) => theme.COLORS.BLUE};
 

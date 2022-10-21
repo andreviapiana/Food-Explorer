@@ -12,6 +12,8 @@ export default {
         BLUE_100: "#82F3FF", /*É a cor dos preços nos produtos*/
         BLUE_200: "#001119", /*É a cor de fundo do form de login*/
         BLUE_300: "#192227", /*É a cor das bordas das tabelas*/
+        BLUE_400: "#091E26", /*É a 1ª cor de fundo do gradiente na Home*/
+        BLUE_500: "#00131C", /*É a 2ª cor de fundo do gradiente na Home*/
         
         GRAY_100: "#C4C4CC", /*É a cor do texto das descrições*/
         GRAY_200: "rgba(255, 255, 255, 0.3)", /*É a cor do texto do Footer*/

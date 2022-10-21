@@ -1,9 +1,9 @@
 import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
 
 import { FiSearch, FiLogOut, FiUser } from 'react-icons/fi';
+import { BsReceipt } from 'react-icons/bs';
 
 import logo from '../../assets/logo.svg';
-import receipt from '../../assets/receipt.svg';
 
 export function Header() {
     
@@ -42,7 +42,7 @@ export function Header() {
                     <Button
                         type='button'
                     >
-                        <img src={receipt} alt="receipt"/>
+                        <BsReceipt size={24}/>
                         Meu pedido (0)
                     </Button>
 

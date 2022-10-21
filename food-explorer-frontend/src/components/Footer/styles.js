@@ -17,7 +17,7 @@ export const Content = styled.div`
         padding: 0 4rem;
         margin: auto;
 
-        color: ${({ theme }) => theme.COLORS.GRAY_200};
+        color: ${({ theme }) => theme.COLORS.GRAY_300};
 
         > p {
             font-size: 1.4rem;
@@ -35,6 +35,8 @@ export const Logo = styled.div`
 
         align-items: center;
         white-space: nowrap;
+
+        color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
 
     span {

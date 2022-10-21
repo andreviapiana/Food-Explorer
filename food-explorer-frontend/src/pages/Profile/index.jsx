@@ -2,7 +2,6 @@ import { Container, Content, Form, Avatar, Infos, Logo } from './styles';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 import { FiUser, FiMail, FiLock, FiCamera, FiShoppingBag, FiHeart } from 'react-icons/fi';
@@ -51,29 +50,27 @@ export function Profile() {
                                         </label>
                                     </Avatar>
 
-                                    <Input 
-                                        placeholder="Nome"
-                                        type="text"
-                                        icon={FiUser}
-                                    />
+                                    <div className='inputs'>
+                                        <label>
+                                            <FiUser size={20}/>
+                                            <input type="text" placeholder="Nome"/>
+                                        </label>
 
-                                    <Input 
-                                        placeholder="E-mail"
-                                        type="text"
-                                        icon={FiMail}
-                                    />
+                                        <label>
+                                            <FiMail size={20}/>
+                                            <input type="text" placeholder="E-mail"/>
+                                        </label>
 
-                                    <Input 
-                                        placeholder="Senha atual"
-                                        type="password"
-                                        icon={FiLock}
-                                    />
+                                        <label>
+                                            <FiLock size={20}/>
+                                            <input type="password" placeholder="Senha atual"/>
+                                        </label>
 
-                                    <Input 
-                                        placeholder="Nova senha"
-                                        type="password"
-                                        icon={FiLock}
-                                    />
+                                        <label>
+                                            <FiLock size={20}/>
+                                            <input type="password" placeholder="Nova senha"/>
+                                        </label>
+                                    </div>
 
                                     <Button title="Salvar" />
                                 </Form>

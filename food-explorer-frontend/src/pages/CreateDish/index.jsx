@@ -50,7 +50,6 @@ export function CreateDish() {
                                         id="dish_image" 
                                         name="dish_image"
                                         accept="image/*" 
-                                        style={ { border: "1px solid white", borderRadius: 5 } }
                                     />
                                 </div>
                                 
@@ -59,7 +58,6 @@ export function CreateDish() {
                                     <Input
                                         placeholder="Ex.: Salada Caesar"
                                         type="text"
-                                        style={ { border: "1px solid white", borderRadius: 5 } }
                                     />
                                 </div>
                             </div>
@@ -88,7 +86,6 @@ export function CreateDish() {
                                     <Input
                                         placeholder="R$ 00,00"
                                         type="number"
-                                        style={ { border: "1px solid white", borderRadius: 5 } }
                                     />
                                 </div>
                             </div>
