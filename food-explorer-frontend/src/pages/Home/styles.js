@@ -5,7 +5,7 @@ export const Container = styled.div`
     flex-direction: column;
     
     width: 100%;
-    min-width: 32rem;
+    min-width: 35rem;
     height: 100vh;
     
     overflow: auto;
@@ -13,6 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+    display: flex;
     flex-direction: column;
     
     width: 100%;

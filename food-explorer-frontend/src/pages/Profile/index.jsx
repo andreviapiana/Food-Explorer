@@ -1,5 +1,7 @@
 import { Container, Content, Form, Avatar, Infos, Logo } from './styles';
 
+import { Link } from "react-router-dom";
+
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Button } from '../../components/Button';
@@ -84,17 +86,19 @@ export function Profile() {
                                     
                                     <p>Olá <span>André</span>, acesse a opção desejada:</p>
 
-                                    <Button 
-                                        title="Meus pedidos"
-                                        icon={FiShoppingBag}
-                                    />
+                                    <Link to="/myorders">
+                                        <Button
+                                            title="Meus pedidos"
+                                            icon={FiShoppingBag}
+                                        />
+                                    </Link>
 
                                     <Button 
                                         title="Meus Favoritos"
                                         icon={FiHeart}
                                     />
 
-                                    <Button 
+                                    <Button
                                         title="Contato"
                                         icon={FiMail}
                                         onClick={() => window.location = 'mailto:contato@foodexplorer.com'}

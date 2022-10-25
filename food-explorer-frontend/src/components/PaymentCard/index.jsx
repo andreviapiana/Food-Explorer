@@ -27,7 +27,6 @@ export function PaymentCard() {
         setCvc(event.target.value.slice(0, limit));
     };
     
-    
     const [isPixVisible, setIsPixVisible] = useState(false);
     const [isCreditVisible, setIsCreditVisible] = useState(false);
     const [isCartVisible, setIsCartVisible] = useState(true);
@@ -52,7 +51,6 @@ export function PaymentCard() {
         setPixActive(false);
     };
 
-
     const [disabledButton, setDisabledButton] = useState(false);
     const btn = document.getElementById('finishPaymentButton');
     const disableButton = () => {
@@ -72,9 +70,6 @@ export function PaymentCard() {
         }, 5000);
     }
 
-
-
-    
     return(
         <Container>
 
@@ -111,7 +106,6 @@ export function PaymentCard() {
                         /> 
                     </div>
                 }
-
 
                 {isCreditVisible &&
                     <div className="paymentCredit" id="paymentCredit">

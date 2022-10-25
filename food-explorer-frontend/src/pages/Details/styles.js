@@ -19,6 +19,11 @@ export const Content = styled.div`
     margin: auto;
     padding: 3.5rem 4rem;
 
+    button:first-child {
+        font-size: 2.4rem;
+        font-weight: 500;
+    }
+
     .description {
         display: flex;
         flex-direction: column;
@@ -32,10 +37,6 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.BLUE};
     }
 
-    > button:nth-child(2) {
-        font-size: 2.4rem;
-        font-weight: 500;
-    }
 
     .content {
         font-family: 'Poppins', sans-serif;

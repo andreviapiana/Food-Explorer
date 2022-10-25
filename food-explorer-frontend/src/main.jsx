@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 
-import { Cart } from './pages/Cart';
+import { Routes } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Cart />
+        <Routes />
     </React.StrictMode>
 )

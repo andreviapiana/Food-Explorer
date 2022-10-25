@@ -179,6 +179,12 @@ export const Infos = styled.div`
         gap: 1.2rem;
     }
 
+    a {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+
     @media only screen and (min-width: 768px) {
         width: 100%;
         border-radius: 0 1rem 1rem 0;

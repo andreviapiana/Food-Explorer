@@ -1,5 +1,7 @@
 import { Container, Content } from "./styles.js";
 
+import { Link } from "react-router-dom";
+
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
@@ -28,11 +30,13 @@ export function Details() {
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
-                
-                            <ButtonText 
-                                title="Voltar" 
-                                icon={RiArrowLeftSLine} 
-                            />
+                            
+                            <Link to="/">
+                                <ButtonText
+                                    title="Voltar" 
+                                    icon={RiArrowLeftSLine} 
+                                />
+                            </Link>
                     
                             <div className="content">
                     

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
     display: flex;
@@ -203,6 +204,7 @@ export const Button = styled.button`
     justify-content: center;
     
     width: 100%;
+    max-width: 216px;
     height: 5.6rem;
     
     border: none;
@@ -215,12 +217,17 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.COLORS.BLUE};
     color: ${({ theme }) => theme.COLORS.WHITE};
 
+    padding: 0 3.6rem;
+
     @media (min-width: 768px) {
         max-width: 21.6rem;
     }
 `;
 
 export const Logout = styled.button`
+    display: flex;
+    align-self: center;
+    
     border: none;
     background: none;
 
@@ -234,7 +241,10 @@ export const Logout = styled.button`
     }
 `;
 
-export const Profile = styled.button`
+export const Profile = styled(Link)`
+    display: flex;
+    align-self: center;
+    
     border: none;
     background: none;
 

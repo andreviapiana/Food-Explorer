@@ -1,5 +1,7 @@
 import { Container, Content, Form } from "./styles.js";
 
+import { Link } from "react-router-dom";
+
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Button } from "../../components/Button";
@@ -34,7 +36,9 @@ export function CreateDish() {
 
                         <Form>
                             <header>
-                                <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
+                                <Link to="/">
+                                    <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
+                                </Link>
                                 <h1>Editar prato</h1>
                             </header>
 

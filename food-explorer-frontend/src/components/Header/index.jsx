@@ -1,5 +1,7 @@
 import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import { FiSearch, FiLogOut, FiUser } from 'react-icons/fi';
 import { BsReceipt } from 'react-icons/bs';
 
@@ -17,10 +19,10 @@ export function Header() {
             <Content>
                 <Logo>
                     <div className="logo">
-                        <a href="#">
+                        <Link to="/">
                             <img src={logo} alt="" />
                             <h1>food explorer</h1>
-                        </a>
+                        </Link>
                     </div>
                 </Logo>
 
@@ -39,14 +41,16 @@ export function Header() {
                         </label>
                     </Search>
 
-                    <Button
-                        type='button'
-                    >
-                        <BsReceipt size={24}/>
-                        Meu pedido (0)
-                    </Button>
+                    <Link to="/cart">
+                        <Button
+                            type='button'
+                        >
+                            <BsReceipt size={24}/>
+                            Meu pedido (0)
+                        </Button>
+                    </Link>
 
-                    <Profile>
+                    <Profile to="/profile">
                         <FiUser />
                     </Profile>
 
