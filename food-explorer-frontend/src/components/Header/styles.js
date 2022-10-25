@@ -98,10 +98,11 @@ export const Content = styled.div`
             z-index: 9999;
             
             width: 100%;
-            height: 44rem;
-            padding: 5rem;
+            height: 35rem;
+            gap: 2rem;
+            padding: 5rem 5rem 3rem;
             border-radius: 0 0 2rem 2rem;
-            border-top: 1px solid ${({ theme }) => theme.COLORS.BLUE};
+            border: 1px solid ${({ theme }) => theme.COLORS.BLUE};
             
             transition: 0.3s;
             
@@ -141,21 +142,23 @@ export const Logo = styled.div`
     display: flex;
     align-items: center;
     color: ${({ theme }) => theme.COLORS.BLUE};
-
+    
     h1 {
         font-size: 2.51109rem;
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }
     
-    .logo {
-        display: flex;
-        gap: 1.123rem;
-        
-    }
-
     .logo img:hover {
         -webkit-animation: rotate-center 0.6s ease-in-out both;
         animation: rotate-center 0.6s ease-in-out both;
+    }
+    
+    a {
+        display: flex;
+        gap: 1.123rem;
+
+        text-decoration: none;
+        color: inherit;
     }
 `;
 

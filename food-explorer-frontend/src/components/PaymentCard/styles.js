@@ -14,15 +14,11 @@ export const Container = styled.div`
     > .buttons button {
         width: 100%;
         background-color: transparent;
-        color: white;
-        border: 1px solid ${({ theme }) => theme.COLORS.BLUE_300};
+        color: ${({ theme }) => theme.COLORS.GRAY_300};
+        border: 1px solid ${({ theme }) => theme.COLORS.GRAY_200};
+        border-bottom: none;
         font-size: 1.6rem;
         line-height: 2.4rem;
-    }
-
-    #active {
-        background-color: red;
-        color: blue;
     }
 
     .buttons button.active {
@@ -40,6 +36,10 @@ export const Container = styled.div`
     > .buttons button:first-child {
         border-radius: 0.8rem 0 0;
     }
+
+    > .buttons button:last-child {
+        border-radius: 0 0.8rem 0 0;
+    }
 `;
 
 export const Content = styled.div`
@@ -50,7 +50,8 @@ export const Content = styled.div`
     font-family: 'Roboto', sans-serif;
 
     padding: 5.9rem clamp(3rem, 3rem + 5.5vw, 9.1rem) 4.8rem;
-    border: 1px solid ${({ theme }) => theme.COLORS.BLUE_300};
+    border: 1px solid ${({ theme }) => theme.COLORS.GRAY_200};
+    border-radius: 0 0 0.8rem 0.8rem;
     
     /* ==== Tela do Cartão de Crédito ==== */
     .validTo {
@@ -59,12 +60,12 @@ export const Content = styled.div`
         margin: 3.7rem 0 3.7rem;
     }
 
-    .creditCard p {
+    .paymentCredit p {
         margin-bottom: 0.8rem;
     }
 
     /* ==== Tela do QR Code ==== */
-    .qrCode {
+    .paymentPix {
         text-align: center;
     }
 
@@ -72,7 +73,7 @@ export const Content = styled.div`
         margin: 0 4rem;
     }
 
-    .qrCode img {
+    .paymentPix img {
         width: 100%;
         max-width: 27rem;
         margin-bottom: 2rem;
@@ -83,9 +84,9 @@ export const Content = styled.div`
     .approved,
     .delivered,
     .cart {
-        width: 346px;
+        width: 100%;
         text-align: center;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
 
     .clock p,
@@ -93,6 +94,7 @@ export const Content = styled.div`
     .delivered p,
     .cart p {
         font-size: 2.4rem;
+        margin-top: 3rem;
     }
 
     /* ==== HIDE ==== */

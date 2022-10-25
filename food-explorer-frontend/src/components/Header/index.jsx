@@ -19,8 +19,8 @@ export function Header() {
                     <div className="logo">
                         <a href="#">
                             <img src={logo} alt="" />
+                            <h1>food explorer</h1>
                         </a>
-                        <h1>food explorer</h1>
                     </div>
                 </Logo>
 

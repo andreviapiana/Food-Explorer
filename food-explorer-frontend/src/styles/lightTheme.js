@@ -18,7 +18,7 @@ export default {
         GRAY_100: "#C4C4CC", /*É a cor do texto das descrições*/
         GRAY_200: "#26282a", /*É a cor do texto dos placeholders dentro dos inputs*/
         GRAY_300: "#7C7C8A", /*É a cor do texto no Footer*/
-        GRAY_400: "rgba(255, 255, 255, 0.05)", /*É a cor dos botões de Pix e Cartão*/
+        GRAY_400: "rgba(255, 255, 255, 0.65)", /*É a cor dos botões de Pix e Cartão*/
   
   
         RED: "#FF002E", /*É a cor do ícone para apagar marcadores*/

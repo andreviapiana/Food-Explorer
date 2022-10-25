@@ -5,20 +5,24 @@ export const Container = styled.div`
     flex-direction: column;
     
     width: 100%;
-    min-width: 320px;
+    min-width: 32rem;
     height: 100vh;
+    
+    overflow: auto;
+    overflow: overlay; 
 `;
 
 export const Content = styled.div`
+    display: flex;
     flex-direction: column;
     
     width: 100%;
-    padding: 3.5rem 0;
+    max-width: 121.2rem;
     margin: auto;
+    padding: 3.5rem 4rem;
     
-    align-items: center;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    
 
     overflow: auto;
     overflow: overlay;
@@ -26,8 +30,8 @@ export const Content = styled.div`
     > .content {
         display: flex;
         flex-direction: column;
-        margin: 0 40px;
         align-items: center;
+        text-align: center;
     }
 
     > .content h2 {

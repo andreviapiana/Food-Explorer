@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { MyOrders } from './pages/MyOrders';
+import { Cart } from './pages/Cart';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <MyOrders />
+        <Cart />
     </React.StrictMode>
 )
