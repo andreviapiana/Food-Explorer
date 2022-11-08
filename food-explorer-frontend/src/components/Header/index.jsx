@@ -1,4 +1,5 @@
 import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
+import { useAuth } from '../../hooks/auth';
 
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,9 @@ import { BsReceipt } from 'react-icons/bs';
 
 import logo from '../../assets/logo.svg';
 
-export function Header() {
+export function Header({search}) {
+    const { user } = useAuth()
+    const { signOut } = useAuth();
     
     function mobileMenu() {
         document.getElementById('hamburger').classList.toggle('active')
@@ -37,24 +40,43 @@ export function Header() {
                     <Search>
                         <label>
                             <FiSearch size={24}/>
-                            <input type="text" placeholder="Busque pelas opções de pratos"/>
+                            <input 
+                                type="text" 
+                                placeholder="Busque pelas opções de pratos"
+                                onChange={e => {search(e.target.value)}}
+                            />
                         </label>
                     </Search>
 
-                    <Link to="/cart">
-                        <Button
-                            type='button'
-                        >
-                            <BsReceipt size={24}/>
-                            Meu pedido (0)
-                        </Button>
-                    </Link>
+                    {
+                        user.isAdmin ?
+
+                            <Link to="/orders">
+                                <Button
+                                    type='button'
+                                >
+                                    <BsReceipt size={24}/>
+                                    Ver pedidos
+                                </Button>
+                            </Link>
+
+                    :
+
+                            <Link to="/cart">
+                                <Button
+                                    type='button'
+                                >
+                                    <BsReceipt size={24}/>
+                                    Meu pedido (0)
+                                </Button>
+                            </Link>
+                    }
 
                     <Profile to="/profile">
                         <FiUser />
                     </Profile>
 
-                    <Logout>
+                    <Logout to="/" onClick={signOut}>
                         <FiLogOut />
                     </Logout>
                 </div>

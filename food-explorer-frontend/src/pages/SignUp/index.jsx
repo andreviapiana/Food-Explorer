@@ -1,6 +1,6 @@
 import { Container, Form, Logo } from "./styles";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -9,7 +9,36 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
 import darkTheme from '../../styles/theme';
 
+import { useState } from "react";
+import { api } from "../../services/api";
+
 export function SignUp() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    function handleSignUp(){
+        if (!name || !email || !password) {
+            return alert("Preencha todos os campos!");
+        }
+
+        api.post("/users", { name, email, password })
+            .then(() => {
+                alert("Usuário cadastrado com sucesso!");
+                navigate("/");
+            })
+            .catch(error => {
+                if(error.response){
+                    alert(error.response.data.message);
+                } else {
+                    alert("Não foi possível cadastrar");
+                }
+
+            });
+    }
+
     return (
         <ThemeProvider theme={darkTheme}>
             <GlobalStyles />
@@ -32,7 +61,7 @@ export function SignUp() {
                             <Input
                                 placeholder="Exemplo: Maria da Silva"
                                 type="text"
-                                style={ { border: "1px solid white", borderRadius: 5 } }
+                                onChange={e => setName(e.target.value)}
                             />
                         </div>
 
@@ -41,7 +70,7 @@ export function SignUp() {
                             <Input
                                 placeholder="Exemplo: exemplo@exemplo.com.br"
                                 type="text"
-                                style={ { border: "1px solid white", borderRadius: 5 } }
+                                onChange={e => setEmail(e.target.value)}
                             />
                         </div>
                         
@@ -50,11 +79,14 @@ export function SignUp() {
                             <Input
                                 placeholder="No mínimo 6 caracteres"
                                 type="password"
-                                style={ { border: "1px solid white", borderRadius: 5 } }
+                                onChange={e => setPassword(e.target.value)}
                             />
                         </div>
 
-                        <Button title="Criar conta" />
+                        <Button 
+                            title="Criar conta" 
+                            onClick={handleSignUp} 
+                        />
 
                         <Link to="/">
                             Já tenho uma conta

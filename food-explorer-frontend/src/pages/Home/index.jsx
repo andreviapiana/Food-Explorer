@@ -2,7 +2,6 @@ import { Container, Content, Banner } from "./styles.js";
 
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { Carousel } from "../../components/Carousel";
 
 import background from "../../assets/Mask group99.png"
 
@@ -14,15 +13,38 @@ import darkTheme from '../../styles/theme';
 import { ThemeSlider} from "../../components/ThemeSlider";
 import { useDarkMode } from '../../styles/useDarkMode';
 
+import { useState, useEffect } from 'react';
+import { api } from '../../services/api';
+import { Card3 } from "../../components/Card3";
+
+// Import Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+// Import required modules
+import { Navigation } from "swiper";
+
 export function Home() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
-    
+
+    const [dishes, setDishes] = useState([])
+    const [search, setSearch] = useState("")
+
+    useEffect(() => {
+        async function fetchDishes() {
+          const response = await api.get(`/dishes?title=${search}`);
+          setDishes(response.data);
+    }
+    fetchDishes();
+    }, [search])
+
     return(
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
-                    <Header />
+                    <Header search={setSearch}/>
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
@@ -38,18 +60,139 @@ export function Home() {
                                 </div>
                             </Banner>
 
-                            <div>   
+                            <div className="cards">   
                                 <p>Pratos principais</p>
 
-                                <Carousel />
+                                {
+                                    dishes.filter(dish => dish.category == "dishes").length > 0 &&
+                                        <Swiper
+                                            grabCursor={true}
+                                            loop={true}
+                                            loopFillGroupWithBlank={true}
+                                            breakpoints={{
+                                                "@0.00": {
+                                                    slidesPerView: 1,
+                                                    spaceBetween: 10,
+                                                },
+                                                "@0.75": {
+                                                    slidesPerView: 2,
+                                                    spaceBetween: 20,
+                                                },
+                                                "@1.00": {
+                                                    slidesPerView: 3,
+                                                    spaceBetween: 40,
+                                                },
+                                                "@1.20": {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 160,
+                                                },
+                                            }}
+                                            navigation={true}
+                                            modules={[Navigation]}
+                                            className="mySwiper"
+                                        >
+                                            {
+                                                dishes.filter(dish => dish.category == "dishes").map((item, index) => (
+                                                    <SwiperSlide
+                                                        key={String(index)}
+                                                    >
+                                                        <Card3 
+                                                            data={item}
+                                                        />
+                                                    </SwiperSlide>
+                                                ))
+                                            }
+                                        </Swiper>
+                                }
 
                                 <p>Sobremesas</p>
 
-                                <Carousel />
+                                {
+                                    dishes.filter(dish => dish.category == "dessert").length > 0 &&
+                                        <Swiper
+                                            grabCursor={true}
+                                            loop={true}
+                                            loopFillGroupWithBlank={true}
+                                            breakpoints={{
+                                                "@0.00": {
+                                                    slidesPerView: 1,
+                                                    spaceBetween: 10,
+                                                },
+                                                "@0.75": {
+                                                    slidesPerView: 2,
+                                                    spaceBetween: 20,
+                                                },
+                                                "@1.00": {
+                                                    slidesPerView: 3,
+                                                    spaceBetween: 40,
+                                                },
+                                                "@1.20": {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 160,
+                                                },
+                                            }}
+                                            navigation={true}
+                                            modules={[Navigation]}
+                                            className="mySwiper"
+                                        >
+                                            {
+                                                dishes.filter(dish => dish.category == "dessert").map(dish => (
+                                                    <SwiperSlide
+                                                        key={String(dish.id)}
+                                                    >
+                                                        <Card3 
+                                                            data={dish}
+                                                        />
+                                                    </SwiperSlide>
+                                                ))
+                                            }
+                                        </Swiper>
+                                }
 
                                 <p>Bebidas</p>
 
-                                <Carousel />
+                                {
+                                    dishes.filter(dish => dish.category == "drinks").length > 0 &&
+                                        <Swiper
+                                            grabCursor={true}
+                                            loop={true}
+                                            loopFillGroupWithBlank={true}
+                                            breakpoints={{
+                                                "@0.00": {
+                                                    slidesPerView: 1,
+                                                    spaceBetween: 10,
+                                                },
+                                                "@0.75": {
+                                                    slidesPerView: 2,
+                                                    spaceBetween: 20,
+                                                },
+                                                "@1.00": {
+                                                    slidesPerView: 3,
+                                                    spaceBetween: 40,
+                                                },
+                                                "@1.20": {
+                                                    slidesPerView: 4,
+                                                    spaceBetween: 160,
+                                                },
+                                            }}
+                                            navigation={true}
+                                            modules={[Navigation]}
+                                            className="mySwiper"
+                                        >
+                                    
+                                            {
+                                                dishes.filter(dish => dish.category == "drinks").map(dish => (
+                                                    <SwiperSlide
+                                                        key={String(dish.id)}
+                                                    >
+                                                        <Card3 
+                                                            data={dish}
+                                                        />
+                                                    </SwiperSlide>
+                                                ))
+                                            }
+                                        </Swiper>
+                                }
                             </div>
                         </Content>
                     <Footer />

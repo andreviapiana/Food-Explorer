@@ -37,7 +37,6 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.BLUE};
     }
 
-
     .content {
         font-family: 'Poppins', sans-serif;
         font-size: 2rem;
@@ -59,6 +58,22 @@ export const Content = styled.div`
             margin-bottom: 2.6rem;
         }
 
+        h4 {
+            height: 5.6rem;
+            padding: 0 2rem;
+            border-radius: 0.8rem;
+            text-align: center;
+            white-space: nowrap;
+            line-height: 5.6rem;
+
+            border: 1px solid white;
+            background-color: ${({ theme }) => theme.COLORS.BLUE_300};
+        }
+
+        button:first-child {
+            font-size: 1.6rem;
+        }
+
         img {
             width: 22rem;
             height: 22rem;
@@ -73,7 +88,8 @@ export const Content = styled.div`
 
         .dish {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 8rem;
         }
 
         .description {
@@ -116,4 +132,9 @@ export const Content = styled.div`
             }
         }
     }
+`;
+
+export const Ingredient = styled.div`
+    display: flex;
+    gap: 1.6rem;
 `;

@@ -1,4 +1,4 @@
-import { Container, Content } from "./styles.js";
+import { Container, Content, Ingredient } from "./styles.js";
 
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,6 @@ import { ButtonText } from "../../components/ButtonText";
 import { Ingredients } from "../../components/Ingredients";
 import { PurchaseCard } from "../../components/PurchaseCard";
 import { RiArrowLeftSLine } from 'react-icons/ri';
-import ravanello from '../../assets/Ravanello.png';
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
@@ -18,15 +17,37 @@ import darkTheme from '../../styles/theme';
 import { ThemeSlider} from "../../components/ThemeSlider";
 import { useDarkMode } from '../../styles/useDarkMode';
 
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { api } from "../../services/api";
+
 export function Details() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
+
+    const [data, setData] = useState(null);
+    const params = useParams();
+
+    const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
+    
+    useEffect(() => {
+        async function fetchDishDetail() {
+          const response = await api.get(`/dishes/${params.id}`);
+          setData(response.data);
+        }
+    
+        fetchDishDetail();
+      }, []);
+    
 
     return(
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
                     <Header />
+                    {
+                        data &&
+
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>
@@ -41,19 +62,28 @@ export function Details() {
                             <div className="content">
                     
                                 <div className="dish">
-                                <img src={ravanello} alt="Logo" />
+                                <img src={imageURL} alt="Logo" />
                                 <div className="description">
                     
-                                    <h1>Salada Ravanello</h1>
+                                    <h1>{data.title}</h1>
                     
-                                    <h3>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h3>
-                    
-                                    <Ingredients />
-                    
+                                    <h3>{data.description}</h3>
+
+                                    <Ingredient>
+                                        {
+                                            data.ingredients.map(ingredient => (
+                                                <Ingredients
+                                                    key={String(ingredient.id)}
+                                                    ingredient={ingredient.name}
+                                                />
+                                            ))
+                                        }
+                                    </Ingredient>
+                                                        
                                     <div className="price">
-                                    <h4>R$25,97</h4>
+                                        <h4>R$ {data.price}</h4>
                                     
-                                    <PurchaseCard />
+                                        <PurchaseCard />
                                     </div>
                     
                                 </div>
@@ -61,6 +91,8 @@ export function Details() {
                             </div>
                 
                         </Content>
+                    }
+
                     <Footer />
                 </Container>
         </ThemeProvider>

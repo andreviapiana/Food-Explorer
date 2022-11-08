@@ -1,17 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    
-    .ingredients {
-        display: flex;
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-
-        width: 100%;
-        gap: 1.6rem;
-    }
-    
+   
     img {
         display: flex;
         margin: auto;

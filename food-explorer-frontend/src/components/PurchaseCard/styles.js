@@ -2,6 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    justify-content: center;
+`;
+
+export const Content = styled.div`
+    display: flex;
+
+    button {
+        height: 5.6rem;
+        max-width: 24.6rem;
+        white-space: nowrap;
+    }
     
     .counter {
         display: flex;
@@ -17,7 +28,6 @@ export const Container = styled.div`
     }
 
     p {
-        font-size: 3.2rem;
         font-weight: 700;
         line-height: 160%;
         color: ${({ theme }) => theme.COLORS.BLUE};

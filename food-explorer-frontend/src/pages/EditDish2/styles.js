@@ -30,13 +30,66 @@ export const Content = styled.div`
         display: flex;
         justify-content: center;
         margin-top: 3.2rem;
+        gap: 2rem;
+        white-space: nowrap;
     }
+
+    .deleteButton {
+        background: ${({ theme }) => theme.COLORS.RED};
+    }
+    
 
     @media only screen and (min-width: 768px) {
         .button {
             align-self: flex-end;
             justify-content: end;
         }
+    }
+`;
+
+export const Avatar = styled.div`
+    position: relative;
+    margin: 0 3rem 3rem;
+    
+    > img {
+        width: 18.6rem;
+        height: 18.6rem;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid ${({ theme }) => theme.COLORS.BLUE};
+    }
+    
+    > label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        position: absolute;
+        bottom: 0.7rem;
+        right: 0.7rem;
+        
+        width: 4.8rem;
+        height: 4.8rem;
+        
+        background-color: ${({ theme }) => theme.COLORS.BLUE_500};
+        border-radius: 50%;
+        border: 3px solid ${({ theme }) => theme.COLORS.BLUE};
+
+        cursor: pointer;
+
+        input {
+            display: none;
+        }
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+            color: ${({ theme }) => theme.COLORS.BLUE};
+        }
+    }
+
+    > label:hover {
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     }
 `;
 

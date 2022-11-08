@@ -224,7 +224,7 @@ export const Button = styled.button`
     }
 `;
 
-export const Logout = styled.button`
+export const Logout = styled(Link)`
     display: flex;
     align-self: center;
     

@@ -36,6 +36,7 @@ export const Content = styled.div`
         -ms-flex-align: center;
         -webkit-align-items: center;
         align-items: center;
+        gap: 3.2rem;
     }
     
     .swiper-button-next,

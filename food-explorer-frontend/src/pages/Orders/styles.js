@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    
     width: 100%;
-    height: 100vh;
+    min-width: 320px;
+    min-height: 100%;
+    
+    overflow: auto;
+    overflow: overlay;  
 
     footer {
         position: absolute;

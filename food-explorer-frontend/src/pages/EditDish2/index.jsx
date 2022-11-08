@@ -10,6 +10,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { IngredientsTag } from "../../components/IngredientsTag";
 import { Textarea } from "../../components/Textarea";
+
 import { RiArrowLeftSLine } from 'react-icons/ri';
 import { FiUpload } from "react-icons/fi";
 
@@ -21,21 +22,28 @@ import darkTheme from '../../styles/theme';
 import { ThemeSlider} from "../../components/ThemeSlider";
 import { useDarkMode } from '../../styles/useDarkMode';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 import { PageError } from "../../components/PageError";
 
-export function CreateDish( ) {
-    const { user } = useAuth()
-
+export function EditDish2( ) {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
-
+    
+    const { user } = useAuth()
+    
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [category, setCategory] = useState("");
+    const [image, setImage] = useState(null);
     const [ingredients, setIngredients] = useState([]);
     const [newIngredient, setNewIngredient] = useState("");
-
+    
+    const params = useParams();
     const navigate = useNavigate();
 
     function handleAddIngredient() {
@@ -47,13 +55,7 @@ export function CreateDish( ) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [category, setCategory] = useState("");
-    const [image, setImage] = useState(null);
-
-    async function handleNewDish() {
+    async function handleUpdateDish() {
         if (!image) {
             return alert("Erro: Você não inseriu uma imagem para o prato!");
         }
@@ -96,15 +98,42 @@ export function CreateDish( ) {
         ))
 
         await api
-            .post("/dishes", formData)
-            .then(alert("Prato adicionado com sucesso!"), navigate("/"))
+            .put(`/dishes/${params.id}`, formData)
+            .then(alert("Prato atualizado com sucesso!"), navigate("/"))
             .catch((error) => {
                 if (error.response) {
                   alert(error.response.data.message);
                 } else {
-                  alert("Erro ao criar o prato!");
+                  alert("Erro ao atualizar o prato!");
                 }
-            });  
+              });  
+    }
+
+    useEffect(() => {
+        async function fetchDish() {
+          const response = await api.get(`/dishes/${params.id}`)
+    
+          const { title, description, category, price, ingredients } = response.data;
+          setTitle(title);
+          setDescription(description);
+          setCategory(category);
+          setPrice(price);
+          setIngredients(ingredients.map(ingredient => ingredient.name));
+        }
+    
+        fetchDish();
+    }, [])
+
+    async function handleRemoveDish() {
+        const isConfirm = confirm("Tem certeza que deseja remover este item?");
+    
+        if(isConfirm) {
+          await api.delete(`/dishes/${params.id}`)
+          .then(() => {
+            alert("Item removido com sucesso!");
+            navigate("/");
+        })
+        }
     }
       
     return(
@@ -125,7 +154,7 @@ export function CreateDish( ) {
                                 <Link to="/">
                                     <ButtonText title="Voltar" icon={RiArrowLeftSLine}/>
                                 </Link>
-                                <h1>Criar prato</h1>
+                                <h1>Editar prato</h1>
                             </header>
 
                             <div className="details">
@@ -139,7 +168,7 @@ export function CreateDish( ) {
                                         type="file"
                                         id="image" 
                                         name="image"
-                                        accept="image/*" 
+                                        accept="image/*"
                                         onChange={e => setImage(e.target.files[0])}
                                     />
                                 </div>
@@ -149,6 +178,7 @@ export function CreateDish( ) {
                                     <Input
                                         placeholder="Ex.: Salada Caesar"
                                         type="text"
+                                        value={title}
                                         onChange={e => setTitle(e.target.value)}
                                     />
                                 </div>
@@ -183,7 +213,7 @@ export function CreateDish( ) {
                                 <div className="dishCategory">
                                     <p>Categoria</p>
 
-                                    <select defaultValue={'default'} onChange={e => setCategory(e.target.value)}>
+                                    <select value={category} onChange={e => setCategory(e.target.value)}>
                                         <option value="default" disabled>Selecione a categoria</option>
                                         <option value="dishes">Pratos</option>
                                         <option value="drinks">Bebidas</option>
@@ -196,6 +226,7 @@ export function CreateDish( ) {
                                     <Input
                                         placeholder="R$ 00,00"
                                         type="number"
+                                        value={price} 
                                         onChange={e => setPrice(e.target.value)}
                                     />
                                 </div>
@@ -205,6 +236,7 @@ export function CreateDish( ) {
                                 <p>Descrição</p>
                                 <Textarea 
                                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                                    defaultValue={description} 
                                     onChange={e => setDescription(e.target.value)}
                                 />
                             </div>
@@ -213,8 +245,13 @@ export function CreateDish( ) {
 
                         <div className="button">
                             <Button 
+                                className="deleteButton"
+                                title="Excluir prato"
+                                onClick={handleRemoveDish}
+                            />
+                            <Button 
                                 title="Salvar alterações"
-                                onClick={handleNewDish} 
+                                onClick={handleUpdateDish} 
                             />
                         </div>
 
