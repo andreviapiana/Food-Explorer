@@ -15,7 +15,7 @@ import { useDarkMode } from '../../styles/useDarkMode';
 
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
-import { Card3 } from "../../components/Card3";
+import { Card } from "../../components/Card";
 
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -96,7 +96,7 @@ export function Home() {
                                                     <SwiperSlide
                                                         key={String(index)}
                                                     >
-                                                        <Card3 
+                                                        <Card 
                                                             data={item}
                                                         />
                                                     </SwiperSlide>
@@ -140,7 +140,7 @@ export function Home() {
                                                     <SwiperSlide
                                                         key={String(dish.id)}
                                                     >
-                                                        <Card3 
+                                                        <Card 
                                                             data={dish}
                                                         />
                                                     </SwiperSlide>
@@ -185,7 +185,7 @@ export function Home() {
                                                     <SwiperSlide
                                                         key={String(dish.id)}
                                                     >
-                                                        <Card3 
+                                                        <Card
                                                             data={dish}
                                                         />
                                                     </SwiperSlide>
