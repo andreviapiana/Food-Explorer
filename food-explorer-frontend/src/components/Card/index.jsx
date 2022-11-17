@@ -8,6 +8,7 @@ import { ButtonText } from "../ButtonText";
 //====import hooks and API====//
 import { useAuth } from "../../hooks/auth";
 import { useFavorites } from '../../hooks/favorites';
+import { useCart } from '../../hooks/cart';
 import { Link } from "react-router-dom";
 import { api } from '../../services/api';
 import { useState } from "react";
@@ -28,22 +29,29 @@ export function Card({ data, ...rest }) {
     //====load and store favorites====//
     const { favorites, addDishToFavorite, removeDishFromFavorite } = useFavorites()
     const isFavorite = favorites.some((dish) => dish.title === data.title)
-    
-    //====set counter initial state====//
-    const [counter, setCounter] = useState(1);
 
-    //====increase counter====//
+    //====load and store cart====//
+    const { handleAddDishToCart, paymentAccept } = useCart();
+    
+    //====set quantity initial state====//
+    const [quantity, setQuantity] = useState(1);
+
+    //====increase quantity====//
     const increase = () => {
-        setCounter(count => count + 1);
-        };
+        if (quantity > 19) {
+            alert("Erro: A quantidade máxima é de 20 unidades")
+            return;
+        }
+        setQuantity(count => count + 1);
+    };
      
-    //====decrease counter====//
+    //====decrease quantity====//
     const decrease = () => {
-        if (counter < 2) {
+        if (quantity < 2) {
             alert("Erro: A quantidade mínima é 1 unidade")
             return;
         }
-    setCounter(count => count - 1);
+        setQuantity(count => count - 1);
     };
 
     return (
@@ -96,7 +104,7 @@ export function Card({ data, ...rest }) {
                                         icon={FiMinus}
                                         onClick={decrease}
                                     />
-                                    <span>{counter.toString().padStart(2, '0')}</span>
+                                    <span>{quantity.toString().padStart(2, '0')}</span>
                                     <ButtonText 
                                         icon={FiPlus}
                                         onClick={increase}
@@ -106,6 +114,7 @@ export function Card({ data, ...rest }) {
                                 <Button 
                                     title="incluir"
                                     icon={BsReceipt}
+                                    onClick={() => handleAddDishToCart(data, quantity, imageURL)}
                                     style={ { height: 56, width: 92, padding: '12px 4px' } }
                                 />
                             </PurchaseCard>

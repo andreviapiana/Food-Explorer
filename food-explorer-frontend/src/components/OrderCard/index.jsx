@@ -1,19 +1,23 @@
 import { Container } from "./styles";
 
 import { ButtonText } from "../ButtonText";
-import dishImage from "../../assets/Mask group-3.png";
 
-export function OrderCard() { 
+import { useCart } from '../../hooks/cart';
+
+export function OrderCard({data}) { 
+    const { handleRemoveDishFromCart, paymentAccept } = useCart();
+
     return(
         <Container>
             <div className="card">
 
-                <img src={dishImage} alt="Imagem do Prato" />
+                <img src={data.image} alt="Imagem do Prato" />
                 
                 <div>
-                    <p><strong>1x </strong>Torradas de Parma <span>R$25,97</span></p>
+                    <p><strong>{data.quantity} x </strong>{data.title} <span>R${data.price}</span></p>
                     <ButtonText 
                         title="Excluir"
+                        onClick={() => handleRemoveDishFromCart(data.id)}
                     />
                 </div>
                 

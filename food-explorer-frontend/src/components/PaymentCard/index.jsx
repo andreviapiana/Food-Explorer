@@ -13,7 +13,14 @@ import checkCircle from '../../assets/CheckCircle.svg';
 import knife from '../../assets/knife.svg';
 import cart from '../../assets/cart.svg';
 
+import { useCart } from '../../hooks/cart';
+import { useAuth } from "../../hooks/auth";
+
 export function PaymentCard() { 
+    const { handleResetCart} = useCart();
+    const { user } = useAuth()
+
+    // CREDITCARD //
     const [num, setNum] = useState('');
     const [cvc, setCvc] = useState('');
 
@@ -26,7 +33,8 @@ export function PaymentCard() {
         const limit = 3;
         setCvc(event.target.value.slice(0, limit));
     };
-    
+
+    //BUTTONS//
     const [isPixVisible, setIsPixVisible] = useState(false);
     const [isCreditVisible, setIsCreditVisible] = useState(false);
     const [isCartVisible, setIsCartVisible] = useState(true);
@@ -75,7 +83,7 @@ export function PaymentCard() {
 
             <div className="buttons">
             
-                <button className={pixActive === true ? 'active' : ''} id="pix" disabled={disabledButton}  onClick={handlePix}><img src={logoPix} alt="Logo Pix"/>PIX</button>
+                <button className={pixActive === true ? 'active' : ''} id="pix" disabled={disabledButton} onClick={handlePix}><img src={logoPix} alt="Logo Pix"/>PIX</button>
                 
                 <button className={creditActive === true ? 'active' : ''} id="credit" disabled={disabledButton} onClick={handleCredit}><img src={cardImg} alt="Logo Cartão de Crédito" />Crédito</button>
 
@@ -102,7 +110,7 @@ export function PaymentCard() {
                             icon={BsReceipt}
                             style={ { height: 56 } }
                             className="finishPaymentButton"
-                            onClick={disableButton}
+                            onClick={()=>{disableButton(); handleResetCart(user.id)}}
                         /> 
                     </div>
                 }

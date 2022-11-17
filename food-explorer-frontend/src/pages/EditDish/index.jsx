@@ -12,7 +12,7 @@ import { IngredientsTag } from "../../components/IngredientsTag";
 import { Textarea } from "../../components/Textarea";
 
 import { RiArrowLeftSLine } from 'react-icons/ri';
-import { FiUpload, FiCamera } from "react-icons/fi";
+import { FiCamera } from "react-icons/fi";
 
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
@@ -187,7 +187,7 @@ export function EditDish() {
 
                                     <Avatar>
                                             <img 
-                                                src={imageURL} 
+                                                src={image} 
                                                 alt="Foto do prato" 
                                             />
 

@@ -230,30 +230,78 @@ export const Logout = styled(Link)`
     
     border: none;
     background: none;
-
-	> svg:hover {
-	    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    }
-        
+    
     > svg {
         color: ${({ theme }) => theme.COLORS.BLUE};
         font-size: 3.2rem;
+    }
+
+    > svg:hover {
+        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
 `;
 
-export const Profile = styled(Link)`
+export const Profile = styled.div`
     display: flex;
-    align-self: center;
+    flex-direction: column;
+    justify-content: center;
     
+    height: 5.6rem;
     border: none;
     background: none;
+    
+    cursor: pointer;
 
-	> svg:hover {
-	    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    }
-        
     > svg {
         color: ${({ theme }) => theme.COLORS.BLUE};
         font-size: 3.2rem;
     }
+    
+    > svg:hover {
+        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    .user-menu {
+        display: none;
+    }
+    
+    .user-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+
+        position: fixed;
+        margin-top: 23rem;
+        gap: 1rem;
+        padding: 1rem;
+
+        z-index: 9999;
+        
+        border-radius: 1rem;
+        border: 1px solid ${({ theme }) => theme.COLORS.BLUE};
+        
+        transition: 0.3s;
+        
+        background-color: ${({ theme }) => theme.COLORS.BLUE_200};
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+`;
+
+export const ButtonMenu = styled.button`
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 4rem;
+    padding: 0 1.6rem;
+    gap: 1rem;
+    
+    border: none;
+    border-radius: 0.5rem;
+    
+    font-size: 1.4rem;
+
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    background-color: ${({ theme }) => theme.COLORS.BLUE_200};
 `;

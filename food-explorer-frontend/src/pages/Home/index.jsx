@@ -16,6 +16,7 @@ import { useDarkMode } from '../../styles/useDarkMode';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { Card } from "../../components/Card";
+import { useFavorites } from '../../hooks/favorites';
 
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -25,12 +26,21 @@ import "swiper/css/navigation";
 // Import required modules
 import { Navigation } from "swiper";
 
-export function Home() {
+export function Home({favoritesFilter}) {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
     const [dishes, setDishes] = useState([])
     const [search, setSearch] = useState("")
+
+    const { favorites } = useFavorites();
+  
+    async function handleFavorites(favorite) {
+        if (favorite.length === 0) {
+        return
+        }
+        setDishes(favorites);
+    }
 
     useEffect(() => {
         async function fetchDishes() {
@@ -38,13 +48,13 @@ export function Home() {
           setDishes(response.data);
     }
     fetchDishes();
-    }, [search])
+    }, [search, favorites.length === 0])
 
     return(
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
                 <Container>
-                    <Header search={setSearch}/>
+                    <Header search={setSearch} favoritesFilter={() => handleFavorites(favorites)}/>
                         <Content>
 
                             <ThemeSlider theme={theme} toggleTheme={toggleTheme}/>

@@ -179,11 +179,6 @@ export function Profile() {
                                                 />
                                             </Link>
 
-                                            <Button 
-                                                title="Meus Favoritos"
-                                                icon={FiHeart}
-                                            />
-
                                             <Button
                                                 title="Contato"
                                                 icon={FiMail}

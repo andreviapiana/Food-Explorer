@@ -1,20 +1,28 @@
-import { Container, Content, Logo, Search, Logout, Button, Profile } from "./styles";
+import { Container, Content, Logo, Search, Logout, Button, ButtonMenu, Profile } from "./styles";
 import { useAuth } from '../../hooks/auth';
 
 import { Link } from "react-router-dom";
 
-import { FiSearch, FiLogOut, FiUser } from 'react-icons/fi';
+import { FiSearch, FiLogOut, FiUser, FiShoppingBag, FiHeart } from 'react-icons/fi';
 import { BsReceipt } from 'react-icons/bs';
 
 import logo from '../../assets/logo.svg';
 
-export function Header({search}) {
+import { useCart } from '../../hooks/cart';
+
+export function Header({search, favoritesFilter}) {
     const { user } = useAuth()
     const { signOut } = useAuth();
+
+    const { cart, orders } = useCart();
     
     function mobileMenu() {
         document.getElementById('hamburger').classList.toggle('active')
         document.getElementById('nav-menu').classList.toggle('active')
+    }
+
+    function userMenu() {
+        document.getElementById('user-menu').classList.toggle('active')
     }
 
     return (
@@ -56,7 +64,7 @@ export function Header({search}) {
                                     type='button'
                                 >
                                     <BsReceipt size={24}/>
-                                    Ver pedidos
+                                    Ver pedidos <span>({orders.length})</span>
                                 </Button>
                             </Link>
 
@@ -67,14 +75,48 @@ export function Header({search}) {
                                     type='button'
                                 >
                                     <BsReceipt size={24}/>
-                                    Meu pedido (0)
+                                    Meu pedido <span>({cart.length})</span>
                                 </Button>
                             </Link>
                     }
 
-                    <Profile to="/profile">
+                    {
+                        user.isAdmin ?
+
+                            <Link to="/profile">
+                                <Profile>
+                                    <FiUser />
+                                </Profile>
+                            </Link>
+
+                    :
+
+                    <Profile onClick={userMenu}>
                         <FiUser />
+                        <div className="user-menu" id="user-menu">
+                                <Link to="/myOrders">
+                                    <ButtonMenu>
+                                        <FiShoppingBag size={24}/>
+                                        Meus Pedidos
+                                    </ButtonMenu>
+                                </Link>
+
+                                <Link to="/">
+                                    <ButtonMenu onClick={favoritesFilter}>
+                                        <FiHeart size={24}/>
+                                        Meus Favoritos
+                                    </ButtonMenu>
+                                </Link>
+                                
+                                <Link to="/profile">
+                                    <ButtonMenu>
+                                        <FiUser size={24}/>
+                                        Meu Perfil
+                                    </ButtonMenu>
+                                </Link>
+                        </div>
                     </Profile>
+                    }
 
                     <Logout to="/" onClick={signOut}>
                         <FiLogOut />

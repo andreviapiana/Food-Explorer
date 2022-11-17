@@ -138,3 +138,33 @@ export const Ingredient = styled.div`
     display: flex;
     gap: 1.6rem;
 `;
+
+export const PurchaseCard = styled.div`
+    display: flex;
+
+    button {
+        height: 5.6rem;
+        max-width: 24.6rem;
+        white-space: nowrap;
+    }
+
+    .counter {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        margin: 0 2.4rem 0 0;
+    }
+
+    .counter span {
+        font-size: 2rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+
+    p {
+        font-weight: 700;
+        line-height: 160%;
+        color: ${({ theme }) => theme.COLORS.BLUE};
+        text-align: center;
+    }
+`;

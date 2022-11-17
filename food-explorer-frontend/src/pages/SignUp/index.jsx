@@ -35,7 +35,6 @@ export function SignUp() {
                 } else {
                     alert("Não foi possível cadastrar");
                 }
-
             });
     }
 

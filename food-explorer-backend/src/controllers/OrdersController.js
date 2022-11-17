@@ -2,29 +2,59 @@ const knex = require("../database/knex");
 
 class OrdersController {
     async create(request, response) {
-        const { cart, payment_method, total } = request.body;
-        const { user_id } = request.params;
+        const { cart, orderStatus, totalPrice, paymentMethod } = request.body;
+        const user_id = request.user.id;
 
         const order_id = await knex("orders").insert({
-            order_status,
-            payment_method,
-            total,
+            orderStatus,
+            totalPrice,
+            paymentMethod,
             user_id
         });
 
-        const items = cart.map(cart => {
+        console.log(order_id);
+
+        const itemsInsert = cart.map(cart => {
             return {
-                order_id,
-                dish_id: cart.dish_id,
-                name: cart.dish_title,
-                price: cart.dish_price,
-                quantity: cart.quantity
+                title: cart.title,
+                quantity: cart.quantity,
+                dish_id: cart.id,
+                order_id
             }
         });
 
-        await knex("orders_items").insert(items);
+        await knex("ordersItems").insert(itemsInsert);
 
         return response.json(order_id);
+    }
+
+    async show(request, response) {
+        const { id } = request.params;
+
+        const order = await knex("orders").where({ id }).first();
+        const orderItems = await knex("ordersItems").where({ order_id: id });
+
+        return response.status(201).json({
+            ...order,
+            orderItems
+        });
+    }
+
+    async index(request, response) {
+        const { user_id } = request.query;
+
+        const orders = await knex("orders")
+            .where({ user_id })
+
+        return response.status(201).json(orders);
+    }
+
+    async update(request, response) {
+        const { id, orderStatus } = request.body;
+    
+        await knex("orders").update({orderStatus}).where({ id })
+        
+        return response.status(201).json();
     }
 }
 
