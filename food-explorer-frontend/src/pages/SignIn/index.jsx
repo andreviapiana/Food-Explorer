@@ -1,21 +1,25 @@
+// Styling Imports
 import { Container, Form, Logo } from "./styles";
-import { useAuth } from "../../hooks/auth";
-import { useState } from "react";
 
-import { Link } from "react-router-dom";
-
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
-
+// Theme Import
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../styles/global'
 import darkTheme from '../../styles/theme';
+
+// Components Imports
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
+
+// Strategic Imports (API and others)
+import { useAuth } from "../../hooks/auth";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    const { signIn } = useAuth();
+    const { signIn, loading } = useAuth();
     
     function handleSignIn() {
         signIn({ email, password });
@@ -57,8 +61,9 @@ export function SignIn() {
                         </div>
 
                         <Button 
-                            title="Entrar" 
+                            title={loading ? "Entrando" : "Entrar"}
                             onClick={handleSignIn} 
+                            disabled={loading}
                         />
 
                         <Link to="/register">

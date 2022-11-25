@@ -1,22 +1,28 @@
+// Styling Imports
 import { Container, Content, PaymentCard } from "./styles.js";
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { OrderCard } from "../../components/OrderCard";
-
+// Theme Swap Imports
 import { ThemeProvider } from 'styled-components';
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/useDarkMode';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/useDarkMode';
-
-import { useCart } from '../../hooks/cart';
-
+// Components Imports
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { OrderCard } from "../../components/OrderCard";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
+// Strategic Imports (API and others)
+import { api } from "../../services/api";
+import { useCart } from '../../hooks/cart';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+// Image Imports
 import { BsReceipt } from 'react-icons/bs';
 import logoPix from '../../assets/pix.svg';
 import cardImg from '../../assets/CreditCard.svg';
@@ -25,22 +31,20 @@ import cartImg from '../../assets/cart.svg';
 import clock from '../../assets/clock.svg';
 import checkCircle from '../../assets/CheckCircle.svg';
 
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
-
 export function Cart() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
+    const { cart, total, handleResetCart} = useCart();
+
+    const [loading, setLoading] = useState(false);
+    
     const navigate = useNavigate();
 
-    const { cart, total, handleResetCart} = useCart();
-    
-    //finalização//
+    // Capturing cart items for registration
     function handleCreatedCart(cart) {
         return {
-          orderStatus: 'pendente',
+          orderStatus: '🔴 Pendente',
           paymentMethod: pixActive ? 'pix': 'creditCard',
           totalPrice: total,
           cart: cart.map(item => (
@@ -53,12 +57,13 @@ export function Cart() {
         }
     }
 
+    // Payment Finalization Function
     async function handleFinishPayment(cart) {
-    
+            
         const newCart = handleCreatedCart(cart)
 
         if (cart.length < 1) {
-            navigate("/");
+            navigate(-1);
             return alert("Oops! Seu carrinho está vazio. Adicione algo antes de tentar pagar.");
         }
 
@@ -75,12 +80,19 @@ export function Cart() {
             return alert("Erro: CVC do cartão incompleto!");
         }
 
+        setLoading(true);
+
         await api.post("/orders", newCart)
             .then(() => {
-                alert("Pedido cadastrado com sucesso!");
                 disableButton();
-                navigate("/");
-                handleResetCart();
+                setTimeout(() => {    
+                    // Elements that will be changed
+                    alert("Pedido cadastrado com sucesso!");
+                    navigate(-1);
+                    handleResetCart();
+
+                    // Delay
+                }, 7000);
             })
             .catch(error => {
                 if(error.response){
@@ -89,9 +101,11 @@ export function Cart() {
                     alert("Não foi possível cadastrar");
                 }
             });
+
+        setLoading(false);
     }
 
-    // CREDITCARD //
+    // CreditCard Validations
     const [num, setNum] = useState('');
     const [cvc, setCvc] = useState('');
 
@@ -105,7 +119,7 @@ export function Cart() {
         setCvc(event.target.value.slice(0, limit));
     };
 
-    //BUTTONS//
+    // Payment Buttons and Change Screens
     const [isPixVisible, setIsPixVisible] = useState(false);
     const [isCreditVisible, setIsCreditVisible] = useState(false);
     const [isCartVisible, setIsCartVisible] = useState(true);
@@ -130,6 +144,7 @@ export function Cart() {
         setPixActive(false);
     };
 
+    // Disable Buttons and Change Screens
     const [disabledButton, setDisabledButton] = useState(false);
 
     const disableButton = () => {
@@ -141,12 +156,12 @@ export function Cart() {
         setIsClockActive(true);
         setIsApprovedActive(false);
         setTimeout(() => {    
-            // 👇️ Elementos que vão ser alterados
+            // Elements that will be changed
             setIsClockActive(false);
             setIsApprovedActive(true);
 
-            // 👇️ Delay para a alteração
-        }, 5000);
+            // Delay
+        }, 4000);
     }
     
     return(
@@ -175,7 +190,7 @@ export function Cart() {
                                     </div>
 
                                     <div className="total">
-                                    <p>Total: R$<span>{total}</span></p>
+                                        <p>Total: R$<span>{total}</span></p>
                                     </div>
                                 </div>
                             
@@ -201,8 +216,8 @@ export function Cart() {
                                         {isCartVisible &&
                                             <div className="cart" id="cart">
                                                 <img src={cartImg} alt="Imagem do carrinho de compras" />
-                                            <p>Selecione uma forma de pagamento acima!</p>
-                                        </div>
+                                                <p>Selecione uma forma de pagamento acima!</p>
+                                            </div>
                                         }
 
                                         {isPixVisible &&
@@ -212,8 +227,8 @@ export function Cart() {
                                                 </div>
 
                                                 <Button
-                                                    title='Finalizar pagamento'
-                                                    id="finishPaymentButton"
+                                                    title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
+                                                    disabled={loading}
                                                     icon={BsReceipt}
                                                     style={ { height: 56 } }
                                                     className="finishPaymentButton"
@@ -263,7 +278,8 @@ export function Cart() {
                                                 </div>
 
                                                 <Button
-                                                        title='Finalizar pagamento'
+                                                        title={loading ? "Finalizando pagamento" : "Finalizar pagamento"}
+                                                        disabled={loading}
                                                         icon={BsReceipt}
                                                         style={ { height: 56 } }
                                                         className="finishPaymentButton"

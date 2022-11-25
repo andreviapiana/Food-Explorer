@@ -20,7 +20,6 @@ export default {
         GRAY_300: "#7C7C8A", /*É a cor do texto nos Inputs*/
         GRAY_400: "rgba(255, 255, 255, 0.05)", /*É a cor dos botões de Pix e Cartão*/
   
-  
         RED: "#FF002E", /*É a cor do ícone para apagar marcadores*/
         BLACK: "#0D0C0F", /*É a cor preta*/
         FULL_BLACK: "#000000" /*É a cor 100% preta*/

@@ -217,7 +217,7 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.COLORS.BLUE};
     color: ${({ theme }) => theme.COLORS.WHITE};
 
-    padding: 0 3.6rem;
+    padding: 0 3rem;
 
     @media (min-width: 768px) {
         max-width: 21.6rem;
@@ -270,7 +270,7 @@ export const Profile = styled.div`
         flex-direction: column;
         align-self: center;
 
-        position: fixed;
+        position: absolute;
         margin-top: 23rem;
         gap: 1rem;
         padding: 1rem;

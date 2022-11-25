@@ -1,3 +1,4 @@
+// Knex, App Error, Compare, Token and AuthConfig Import
 const knex = require("../database/knex");
 
 const authConfig = require("../configs/auth");
@@ -8,10 +9,13 @@ const { compare } = require("bcryptjs");
 
 class SessionsController {
     async create(request, response) {
+        // Capturing Body Parameters
         const { email, password } = request.body;
 
+        // Getting the user data through the informed e-mail
         const user = await knex("users").where({ email }).first();
 
+        // Verifications
         if (!user) {
             throw new AppError("E-mail e/ou senha incorretos", 401);
         }
@@ -28,7 +32,7 @@ class SessionsController {
             expiresIn
         })
 
-        return response.json({ user, token });
+        return response.status(201).json({ user, token });
     }
 }
 

@@ -25,8 +25,20 @@ export const Content = styled.div`
     max-width: 121.2rem;
     margin: auto;
     padding: 3.5rem 4rem;
-`;
 
+    .zeroOrders {
+        justify-content: center;
+        align-items: center;
+        padding: 10rem;
+        white-space: normal;
+    }
+
+    .zeroOrders p {
+        text-align: center;
+        font-weight: bold;
+        font-size: 3rem;
+    }
+`;
 
 export const Table = styled.div`
     table {

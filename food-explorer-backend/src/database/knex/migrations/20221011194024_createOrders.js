@@ -3,7 +3,7 @@ exports.up = knex => knex.schema.createTable("orders", table => {
     table.integer("user_id").references("id").inTable("users");
    
     table.text("orderStatus");
-    table.integer("totalPrice");
+    table.text("totalPrice");
     table.text("paymentMethod");
 
     table.timestamp("created_at").default(knex.fn.now());

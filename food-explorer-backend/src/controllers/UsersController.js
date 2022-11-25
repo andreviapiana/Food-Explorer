@@ -1,3 +1,4 @@
+// Hash, App Error and SQLite Connection Import
 const { hash, compare } = require('bcryptjs');
 
 const AppError = require('../utils/AppError');
@@ -6,11 +7,14 @@ const sqliteConnection = require('../database/sqlite');
 
 class UsersController {
     async create(request, response) {
+        // Capturing Body Parameters
         const { name, email, password } = request.body;
 
+        // Connection with Database
         const database = await sqliteConnection();
         const checkUserExists = await database.get('SELECT * FROM users WHERE email = (?)', [email])
 
+        // Verifications
         if(checkUserExists) {
             throw new AppError('Erro: Este e-mail já está em uso!');
         }
@@ -27,8 +31,10 @@ class UsersController {
             throw new AppError('Erro: A senha deve ter pelo menos 6 dígitos!');
         }
         
+        // Password Cryptography
         const hashedPassword = await hash(password, 8);
 
+        // Inserting the infos into the database
         await database.run(
             'INSERT INTO users (name, email, password ) VALUES (?, ?, ?)',
             [name, email, hashedPassword]
@@ -38,12 +44,15 @@ class UsersController {
     }
 
     async update(request, response) {
+        // Capturing Body Parameters and ID Parameters
         const {name, email, password, old_password } = request.body;
         const user_id = request.user.id
 
+        // Connection with Database
         const database = await sqliteConnection();
         const user = await database.get("SELECT * FROM users WHERE id = (?)", [user_id]);
 
+        // Verifications
         if (!user) {
             throw new AppError("Usuário não encontrado");
         }
@@ -71,6 +80,7 @@ class UsersController {
             user.password = await hash(password, 8);
         }
 
+        // Inserting the infos into the database
         await database.run(`
             UPDATE users SET
             name = ?,
@@ -81,9 +91,8 @@ class UsersController {
             [user.name, user.email, user.password, user_id]
         );
 
-        return response.status(200).json();
+        return response.status(201).json();
     }
-
 }
 
 module.exports = UsersController;

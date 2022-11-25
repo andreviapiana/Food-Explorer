@@ -75,7 +75,7 @@ export function Header({search, favoritesFilter}) {
                                     type='button'
                                 >
                                     <BsReceipt size={24}/>
-                                    Meu pedido <span>({cart.length})</span>
+                                    Carrinho <span>({cart.length})</span>
                                 </Button>
                             </Link>
                     }
@@ -94,7 +94,7 @@ export function Header({search, favoritesFilter}) {
                     <Profile onClick={userMenu}>
                         <FiUser />
                         <div className="user-menu" id="user-menu">
-                                <Link to="/myOrders">
+                                <Link to="/orders">
                                     <ButtonMenu>
                                         <FiShoppingBag size={24}/>
                                         Meus Pedidos

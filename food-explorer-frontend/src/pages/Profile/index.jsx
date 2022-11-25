@@ -1,38 +1,43 @@
+// Styling Imports
 import { Container, Content, Form, Avatar, Infos, Logo } from './styles';
-import { useState } from 'react';
-import { useAuth } from '../../hooks/auth';
-import { api } from '../../services/api';
 
-import { Link } from "react-router-dom";
-
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-import { Button } from '../../components/Button';
-
-import { FiUser, FiMail, FiLock, FiCamera, FiShoppingBag, FiHeart, FiPlus } from 'react-icons/fi';
-
-import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
-import logo from '../../assets/logo.svg';
-
+// Theme Swap Imports
 import { ThemeProvider } from 'styled-components';
+import { ThemeSlider} from "../../components/ThemeSlider";
+import { useDarkMode } from '../../styles/useDarkMode';
 import GlobalStyles from '../../styles/global'
 import lightTheme from '../../styles/lightTheme';
 import darkTheme from '../../styles/theme';
 
-import { ThemeSlider} from "../../components/ThemeSlider";
-import { useDarkMode } from '../../styles/useDarkMode';
+// Components Imports
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import { Button } from '../../components/Button';
+
+// Strategic Imports (API and others)
+import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+
+// Image Imports
+import { FiUser, FiMail, FiLock, FiCamera, FiShoppingBag, FiPlus } from 'react-icons/fi';
+import { BsWhatsapp } from 'react-icons/bs';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import logo from '../../assets/logo.svg';
 
 export function Profile() {
     const [ theme, toggleTheme ] = useDarkMode();
     const themeMode = theme === 'lightTheme' ? lightTheme : darkTheme;
 
-    const { user, updateProfile } = useAuth();
+    const { user, updateProfile, loading } = useAuth();
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [passwordOld, setPasswordOld] = useState();
     const [passwordNew, setPasswordNew] = useState();
 
+    // Update User Function
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
     const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
@@ -84,7 +89,6 @@ export function Profile() {
                                                 accept="image/*"
                                                 onChange={handleChangeAvatar}
                                             />
-
                                         </label>
                                     </Avatar>
 
@@ -129,8 +133,9 @@ export function Profile() {
                                     </div>
 
                                     <Button 
-                                        title="Salvar"
+                                        title={loading ? "Salvando" : "Salvar"}
                                         onClick={handleUpdate} 
+                                        disabled={loading}
                                     />
                                 </Form>
 
@@ -140,7 +145,7 @@ export function Profile() {
                                         <Infos>
                                             <Logo>
                                                 <div className="logo">
-                                                        <img src={logo} alt="" />
+                                                    <img src={logo} alt="" />
                                                 </div>
                                             </Logo>
                                             
@@ -172,7 +177,7 @@ export function Profile() {
                                             
                                             <p>Olá <span>{name}</span>, acesse a opção desejada:</p>
 
-                                            <Link to="/myorders">
+                                            <Link to="/orders">
                                                 <Button
                                                     title="Meus pedidos"
                                                     icon={FiShoppingBag}
@@ -180,9 +185,15 @@ export function Profile() {
                                             </Link>
 
                                             <Button
-                                                title="Contato"
+                                                title="Contato por e-mail"
                                                 icon={FiMail}
                                                 onClick={() => window.location = 'mailto:contato@foodexplorer.com'}
+                                            />
+
+                                            <Button
+                                                title="WhatsApp"
+                                                icon={BsWhatsapp}
+                                                onClick={() => window.open("https://api.whatsapp.com/send?phone=+999999999999&text=Oi pessoal do FoodExplorer! Gostaria de falar sobre o meu pedido!", '_blank')}
                                             />
                                         </Infos>
                                 }

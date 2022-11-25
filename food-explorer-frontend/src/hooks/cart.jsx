@@ -15,7 +15,7 @@ function CartProvider({ children }) {
             
             const order = {id, title, price: priceFormatted, image, quantity}
             
-            const orderExists = cart.some((ord) => ord.title === order.title)
+            const orderExists = cart.some((userOrder) => userOrder.title === order.title)
             if (orderExists) {
                 return alert("Esse item já está no carrinho")
             }
@@ -54,7 +54,7 @@ function CartProvider({ children }) {
             cart,
             handleAddDishToCart,
             handleRemoveDishFromCart,
-            total: String(total).replace('.', ','),
+            total: String(total.toFixed(2)).replace('.', ','),
             orders,
             setOrders,
             handleResetCart,
@@ -65,8 +65,8 @@ function CartProvider({ children }) {
 }
 
 function useCart() {
-  const context = useContext(CartContext);
-  return context;
+    const context = useContext(CartContext);
+    return context;
 }
 
 export { CartProvider, useCart };

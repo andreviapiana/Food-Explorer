@@ -127,7 +127,7 @@ export const PaymentCard = styled.div`
     }
 
     .paymentBody {
-        /* ==== Configs gerais do Card ==== */
+        /* ==== General card settings ==== */
 
         width: 100%;
         max-width: 53.0rem;
@@ -143,7 +143,7 @@ export const PaymentCard = styled.div`
         align-items: center;
         align-content: center;
         
-        /* ==== Tela do Cartão de Crédito ==== */
+        /* ==== CreditCard Screen ==== */
         .validTo {
             display: flex;
             gap: 1.7rem;
@@ -154,22 +154,23 @@ export const PaymentCard = styled.div`
             margin-bottom: 0.8rem;
         }
 
-        /* ==== Tela do QR Code ==== */
+        /* ==== QR Code Screen ==== */
         .paymentPix {
             text-align: center;
         }
 
         .qr {
-            margin: 0 4rem;
+            text-align: center;
         }
 
-        .paymentPix img {
-            width: 100%;
-            max-width: 27rem;
+        #paymentPix img {
+            width: clamp(5rem, 5rem + 20vw, 27rem);
+            height: clamp(5rem, 5rem + 20vw, 27rem);
+
             margin-bottom: 2rem;
         }
 
-        /* ==== Tela Pós Pagamento ==== */
+        /* ==== Post Payment Screen ==== */
         .clock,
         .approved,
         .cart {
@@ -183,6 +184,33 @@ export const PaymentCard = styled.div`
         .cart p {
             font-size: 2.4rem;
             margin-top: 3rem;
+        }
+    }
+
+    /* ==== Smooth Transitions ==== */
+    .cart,
+    .clock,
+    .approved,
+    .paymentCredit,
+    #paymentPix {
+	    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @-webkit-keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+        @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
         }
     }
 `;

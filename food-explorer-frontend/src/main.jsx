@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import { AuthProvider } from './hooks/auth';
 import { FavoritesProvider } from './hooks/favorites';
 import { CartProvider } from './hooks/cart';

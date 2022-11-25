@@ -47,7 +47,7 @@ export const Content = styled.div`
     }
 `;
 
-export const Avatar = styled.div`
+export const Image = styled.div`
 
     position: relative;
     margin: 0 3rem 3rem;
