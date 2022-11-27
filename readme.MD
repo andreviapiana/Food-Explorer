@@ -61,7 +61,7 @@ ___
 
 #### 🚧 Executando o BackEnd
 ```bash
-# No BackEnd modifique as variáveis de ambiente no arquivo .env vazio com a porta e o secret de sua preferência
+# No BackEnd insira uma porta e um secret no arquivo .env vazio
   AUTH_SECRET=
   PORT=
 
