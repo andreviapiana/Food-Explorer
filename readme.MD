@@ -1,5 +1,9 @@
 <p align="center">
-  <h1 align="center"><a href="link netlify aqui">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
+  <h1 align="center"><a href="https://foodexplorer.vercel.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
+</p>
+
+<p align="center">
+  <img width="550" height="99" src="https://user-images.githubusercontent.com/106932234/204160165-1936c0db-539f-4a11-bf5e-1f3d3f789896.png">
 </p>
 
 Este é o resultado do desafio final do Explorer, o Food Explorer.
@@ -93,6 +97,13 @@ $ npm run dev
 ___
 
 Este BackEnd foi hospedado diretamente no Render.
-Já o Frontend foi hospedado diretamente no Netlify.
+Já o Frontend foi hospedado diretamente no Vercel.
 
-[O resultado FINAL pode ser visto aqui](https://rocketmovies-deploy.netlify.app/)
+___
+Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 15 minutos sem utilização.
+<br>
+Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde, pois ele estará "inicializando" os serviços.
+<br>
+Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
+
+[O resultado FINAL pode ser visto aqui](https://foodexplorer.vercel.app/)
