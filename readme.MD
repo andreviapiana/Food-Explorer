@@ -61,6 +61,10 @@ ___
 
 #### 🚧 Executando o BackEnd
 ```bash
+# No BackEnd modifique as variáveis de ambiente no arquivo .env vazio com a porta e o secret de sua preferência
+  AUTH_SECRET=
+  PORT=
+
 # Navegue até o diretório do BackEnd
 $ cd food-explorer-backend
 
