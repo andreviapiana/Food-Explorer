@@ -1,8 +1,8 @@
 <p align="center">
   <h1 align="center"><a href="https://foodexplorer.vercel.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
+</p>
 
-
-
+<p align="center">
 ![logo](https://user-images.githubusercontent.com/106932234/204160165-1936c0db-539f-4a11-bf5e-1f3d3f789896.png)
 </p>
 
