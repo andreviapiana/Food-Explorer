@@ -94,18 +94,6 @@ class OrdersController {
         }
     }
 
-    async show(request, response) {
-        const { id } = request.params;
-
-        const orders = await knex("orders").where({ id }).first();
-        const ordersItems = await knex("ordersItems").where({ order_id: id });
-
-        return response.status(200).json({
-            ...orders,
-            ordersItems
-        });
-    }
-
     async update(request, response) {
         // Capturing Body Parameters
         const { id, orderStatus } = request.body;

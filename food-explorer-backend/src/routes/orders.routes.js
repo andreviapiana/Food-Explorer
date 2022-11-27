@@ -18,7 +18,6 @@ ordersRoutes.use(ensureAuthenticated);
 
 // Orders Routes
 ordersRoutes.post("/", ordersController.create);
-ordersRoutes.get("/:id", ordersController.show);
 ordersRoutes.get("/", ordersController.index);
 ordersRoutes.put("/", ensureUserIsAdmin, ordersController.update);
 
