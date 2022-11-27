@@ -93,6 +93,12 @@ $ npm run dev
 ___
 
 Este BackEnd foi hospedado diretamente no Render.
-Já o Frontend foi hospedado diretamente no Netlify.
+Já o Frontend foi hospedado diretamente no Vercel.
+<br>
+Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 30 minutos sem utilização.
+<br>
+Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde, pois ele estará "inicializando" os serviços.
+<br>
+Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
 
-[O resultado FINAL pode ser visto aqui](https://rocketmovies-deploy.netlify.app/)
+[O resultado FINAL pode ser visto aqui](https://foodexplorer.vercel.app/)
