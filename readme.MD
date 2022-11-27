@@ -2,8 +2,9 @@
   <h1 align="center"><a href="https://foodexplorer.vercel.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
 </p>
 
-![image align="center"](https://user-images.githubusercontent.com/106932234/204158281-343b9d0c-7ff9-4745-99a6-056db9c013d0.png)
-
+<p align="center">
+![image](https://user-images.githubusercontent.com/106932234/204158281-343b9d0c-7ff9-4745-99a6-056db9c013d0.png)
+</p>
 
 Este é o resultado do desafio final do Explorer, o Food Explorer.
 <br>
