@@ -2,6 +2,10 @@
   <h1 align="center"><a href="https://foodexplorer.vercel.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
 </p>
 
+<p align="center">
+![logo](https://user-images.githubusercontent.com/106932234/204160165-1936c0db-539f-4a11-bf5e-1f3d3f789896.png)
+</p>
+
 Este é o resultado do desafio final do Explorer, o Food Explorer.
 <br>
 Nele realizei a criação do FrontEnd e do BackEnd completo da aplicação.
@@ -96,7 +100,7 @@ Este BackEnd foi hospedado diretamente no Render.
 Já o Frontend foi hospedado diretamente no Vercel.
 
 ___
-Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 30 minutos sem utilização.
+Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 15 minutos sem utilização.
 <br>
 Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde, pois ele estará "inicializando" os serviços.
 <br>
