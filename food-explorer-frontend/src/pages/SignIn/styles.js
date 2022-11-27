@@ -82,6 +82,7 @@ export const Logo = styled.div`
     display: flex;
     align-items: center;
     color: ${({ theme }) => theme.COLORS.BLUE};
+    margin-bottom: 4rem;
 
     h1 {
         font-size: clamp(3rem, 3rem + 1.5vw, 4.248rem);
