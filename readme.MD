@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center"><a href="https://foodexplorer.vercel.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
+  <h1 align="center"><a href="https://food3xplorer.netlify.app/">Food Explorer - Rocketseat Explorer :rocket: </a></h1>
 </p>
 
 <p align="center">
@@ -103,7 +103,7 @@ $ npm run dev
 ___
 
 Este BackEnd foi hospedado diretamente no Render.
-Já o Frontend foi hospedado diretamente no Vercel.
+Já o Frontend foi hospedado diretamente no Netlify.
 
 ___
 Obs.: Por estar hospedado em um serviço gratuito, o BackEnd "hiberna" após 15 minutos sem utilização.
@@ -112,4 +112,4 @@ Se você está tentando acessar o site e o BackEnd não responde, apenas aguarde
 <br>
 Esta etapa poderá demorar até 1 minuto, dependendo da carga nos servidores do Render.
 
-[O resultado FINAL pode ser visto aqui](https://foodexplorer.vercel.app/)
+[O resultado FINAL pode ser visto aqui](https://food3xplorer.netlify.app/)
