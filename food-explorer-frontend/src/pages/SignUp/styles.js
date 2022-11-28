@@ -41,7 +41,6 @@ export const Form = styled.form`
     
     max-width: 47.6rem;
     width: 100%;
-    height: 100%;
     
     padding: 6.4rem;
     border-radius: 1.6rem;
