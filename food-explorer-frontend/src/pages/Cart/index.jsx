@@ -174,7 +174,7 @@ export function Cart() {
                 <Container>
                     <Header />
 
-                    {
+                        {
                             user.isAdmin ?
 
                             <PageError />
