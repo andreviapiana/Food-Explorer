@@ -77,6 +77,8 @@ export const Content = styled.div`
         img {
             width: 22rem;
             height: 22rem;
+            border-radius: 50%;
+            object-fit: cover
         }
     }
 
